@@ -11,7 +11,7 @@
 /* NAV BAR CSS */
 
 .nav-bar {
-  margin: 30px 20px;
+  margin: 0 20px 30px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,7 +149,7 @@
   justify-content: flex-start;
 }
 
-#header {
+.header {
   margin-bottom: 10px;
   cursor: auto;
   color: var(--font-primary);
