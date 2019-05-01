@@ -10,8 +10,8 @@ const App = () => (
   <div>
     <Switch>
       <ProtectedRoute exact path="/servers" component={serverIndexContainer}></ProtectedRoute>
-      <Route exact path="/login" component={loginFormContainer}></Route>
-      <Route exact path="/signup" component={signupFormContainer}></Route>
+      <AuthRoute exact path="/login" component={loginFormContainer}></AuthRoute>
+      <AuthRoute exact path="/signup" component={signupFormContainer}></AuthRoute>
       <Route exact path="/" component={landingPage}></Route>
     </Switch>
   </div>
