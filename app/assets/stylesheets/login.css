@@ -9,6 +9,7 @@
   --input-background: #303338;
   --button-hover: #667bc4;
   --link-color: #7289DA;
+  --error-color: #d84545;
 }
 
 /* LOGIN */
@@ -111,4 +112,28 @@
 .other-form-container {
   display: flex;
   align-items: flex-end;
+}
+
+/* ERROR-ED OUT FORM STYLING */
+
+.error-form label {
+  color: var(--error-color);
+}
+
+.error-form label input {
+  border-color: var(--error-color);
+}
+
+.error-form label input:hover {
+  border-color: var(--error-color);
+}
+
+.error-form label input:focus {
+  border-color: var(--error-color);
+}
+
+.error-form label h5 {
+  font-style: italic;
+  text-transform: none;
+  font-size: 0.7em;
 }

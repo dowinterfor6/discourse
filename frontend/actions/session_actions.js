@@ -19,15 +19,8 @@ const receiveErrors = (errors) => ({
   errors
 });
 
-// const removeErrors = () => ({
-//   type: REMOVE_ERRORS
-// });
-
 export const deleteErrors = () => (dispatch) => (
-  APIUtil.hack()
-    .then(
-      () => dispatch(receiveErrors([]))
-    )
+  dispatch(receiveErrors([]))
 );
 
 export const login = (user) => (dispatch) => (

@@ -12,19 +12,22 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
-    this.handleFormChange = this.handleFormChange.bind(this);
+    this.parseErrors = this.parseErrors.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.processForm(user)
-      .then(() => this.props.history.push('/servers'));
+    .then(() => this.props.history.push('/servers'));
   }
 
-  handleFormChange() {
-    console.log(this.props);
+  componentWillUnmount() {
     this.props.deleteErrors();
+  }
+
+  componentDidUpdate() {
+    this.renderErrors();
   }
 
   update(field) {
@@ -41,20 +44,54 @@ class SessionForm extends React.Component {
   }
   
   renderErrors() {
-    // Might need to change this based on css
-    return(
-      <ul className="error-popup">
-        {this.props.errors.map((error, idx) => (
-          <li key={idx}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    let errorsParse;
+    if (this.props.errors.length > 0) {
+      const form = document.querySelector('form');
+      if (!form.className.includes('error-form')) {
+        form.className += ' error-form';
+      }
+      errorsParse = this.parseErrors();
+      Object.keys(errorsParse).forEach((key) => {
+        let textContainer = document.createElement('h5');
+        let errorText = "";
+        if (errorsParse[key].length > 0) {
+          errorText = ` - ${errorsParse[key]}`;
+          textContainer.appendChild(document.createTextNode(errorText));
+          let labelContainer = document.getElementById(`${key}-label`);
+          console.log(labelContainer.childNodes.length);
+          if (labelContainer.childNodes.length > 1) {
+            labelContainer.replaceChild(textContainer, labelContainer.childNodes[1])
+          } else {
+            labelContainer.appendChild(textContainer);
+          }
+        }
+      })
+    }
+  }
+
+  parseErrors() {
+    let errorObj = {
+      email: '',
+      username: '',
+      password: ''
+    };
+
+    this.props.errors.forEach((err) => {
+      let errDisp = err;
+      err = err.toLowerCase();
+      if (err.includes('email')) {
+        errorObj.email = errDisp;
+      } else if (err.includes('username')) {
+        errorObj.username = errDisp;
+      } else if (err.includes('password')) {
+        errorObj.password = errDisp;
+      }
+    });
+
+    return errorObj;
   }
 
   render() {
-
     // Probably needs refactoring somehow
     // Maybe put in props?
     let otherFormLink;
@@ -66,7 +103,7 @@ class SessionForm extends React.Component {
         otherFormLink = 
           <div className='other-form-container'>
           <p>Need an account? &nbsp;</p>
-            <Link to='/signup' onClick={this.handleFormChange}><h4>Register</h4></Link>
+            <Link to='/signup'><h4>Register</h4></Link>
             <p>&nbsp; or &nbsp;</p>
             <h4 onClick={this.handleDemoLogin}>Demo Login</h4>
           </div>;
@@ -86,7 +123,9 @@ class SessionForm extends React.Component {
           <h2>Create an account</h2>;
         emailForm = 
           <label>
-            Email
+            <div id="email-label">
+              Email
+            </div>
             <input 
               required 
               type="email" 
@@ -96,7 +135,7 @@ class SessionForm extends React.Component {
         otherFormLink =
           <div className='other-form-container'>
             <p>Already have an account? &nbsp;</p>
-            <Link to='/login' onClick={this.handleFormChange}><h4>Login</h4></Link>
+            <Link to='/login'><h4>Login</h4></Link>
             <p>&nbsp; or &nbsp;</p>
             <h4 onClick={this.handleDemoLogin}>Demo Login</h4>
           </div>;
@@ -121,15 +160,25 @@ class SessionForm extends React.Component {
           <Link to='/'><img src="./assets/discord-logo.png" alt="Discord Logo"></img></Link>
           <form className="login-form" onSubmit={this.handleSubmit}>
             {formHeader}
-            {this.renderErrors()}
             {emailForm}
             <label>
-              Username
-              <input required type="text" onChange={this.update('username')}></input>
+              <div id="username-label">
+                Username 
+              </div>
+              <input  
+                required type="text" 
+                onChange={this.update('username')}>
+              </input>
             </label>
             <label>
-              Password
-              <input required type="password" onChange={this.update('password')}></input>
+              <div id="password-label">
+                Password
+              </div>
+              <input 
+                required 
+                type="password" 
+                onChange={this.update('password')}>
+              </input>
             </label>
             {forgotPassword}
             <button>{this.props.formType}</button>
