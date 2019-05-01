@@ -52,10 +52,12 @@ class SessionForm extends React.Component {
       }
       errorsParse = this.parseErrors();
       Object.keys(errorsParse).forEach((key) => {
-        let textContainer = document.createElement('h5');
-        let errorText = "";
         if (errorsParse[key].length > 0) {
-          errorText = ` - ${errorsParse[key]}`;
+          let textContainer = document.createElement('h5');
+          let errorText = `- ${errorsParse[key]}`;
+          if (key === 'login') {
+            key === 'username';
+          }
           textContainer.appendChild(document.createTextNode(errorText));
           let labelContainer = document.getElementById(`${key}-label`);
           console.log(labelContainer.childNodes.length);
@@ -73,7 +75,8 @@ class SessionForm extends React.Component {
     let errorObj = {
       email: '',
       username: '',
-      password: ''
+      password: '',
+      login: ''
     };
 
     this.props.errors.forEach((err) => {
@@ -85,6 +88,8 @@ class SessionForm extends React.Component {
         errorObj.username = errDisp;
       } else if (err.includes('password')) {
         errorObj.password = errDisp;
+      } else {
+        errorObj.login = errDisp;
       }
     });
 
@@ -124,7 +129,7 @@ class SessionForm extends React.Component {
         emailForm = 
           <label>
             <div id="email-label">
-              Email
+              Email &nbsp;
             </div>
             <input 
               required 
@@ -163,7 +168,7 @@ class SessionForm extends React.Component {
             {emailForm}
             <label>
               <div id="username-label">
-                Username 
+                Username &nbsp;
               </div>
               <input  
                 required type="text" 
@@ -172,7 +177,7 @@ class SessionForm extends React.Component {
             </label>
             <label>
               <div id="password-label">
-                Password
+                Password &nbsp;
               </div>
               <input 
                 required 

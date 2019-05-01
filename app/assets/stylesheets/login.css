@@ -135,5 +135,11 @@
 .error-form label h5 {
   font-style: italic;
   text-transform: none;
-  font-size: 0.7em;
+  font-size: 13px;
+}
+
+.error-form label div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }

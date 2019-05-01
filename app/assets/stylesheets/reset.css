@@ -106,3 +106,7 @@ button {
 	cursor: pointer;
 	position: relative;
 }
+
+button:focus, button:hover:active {
+  outline: none;
+}
