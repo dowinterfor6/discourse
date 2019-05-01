@@ -82,6 +82,10 @@ p {
 	margin: 30px auto;
 	color: var(--font-secondary);
 }  
+
+a {
+	font-size: 15px;
+}
   
 li {
 	cursor: pointer;
