@@ -160,7 +160,7 @@ class SessionForm extends React.Component {
       <div className="login-body">
         <div className="login-main">
           <Link to='/'><img src="./assets/discord-logo.png" alt="Discord Logo"></img></Link>
-          <form className="login-form" onSubmit={this.handleSubmit}>
+          <form className="login-form bounceInDown" onSubmit={this.handleSubmit}>
             {formHeader}
             {emailForm}
             <label>
