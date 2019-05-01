@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
-      render 'api/users/show' #Is this the right place?
+      render 'api/users/show' #Is this the right info?
     else
       render json: ['Invalid username/password combination'], status: 401 #Is this the right status?
     end
@@ -14,10 +14,7 @@ class Api::SessionsController < ApplicationController
     @user = current_user
     if @user
       logout
-      # redirect_to '/api/'
-      # render json: {}
-      render 'api/users/show' #Is this the right place?
-      # redirect_to '/'
+      render 'api/users/show' #Is this the right info?
     else
       render json: ['Must have logged in user to log out'], status: 404
     end
