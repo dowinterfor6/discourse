@@ -32,6 +32,16 @@ class serverIndex extends React.Component {
             <li>8</li>
             <li>9</li>
             <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li className="add-server-icon">+</li>
           </ul>
         </aside>
         <div className="discord-main-content-container">
@@ -51,6 +61,10 @@ class serverIndex extends React.Component {
               <i className="fas fa-search fa-2x"></i>
               <i className="fas fa-at fa-2x"></i>
               <i className="far fa-question-circle fa-2x"></i>
+              <label onClick={this.handleLogout}>
+                <span>Logout:</span>
+                <i className="fas fa-sign-out-alt fa-2x"></i>
+              </label>
             </div>
           </section>
           <section className="channels">
@@ -65,7 +79,6 @@ class serverIndex extends React.Component {
               <li><i className="fas fa-hashtag"></i> dump-general</li>
               <li><i className="fas fa-hashtag"></i> rhytm-general</li>
             </ul>
-            <button onClick={this.handleLogout}>Logout</button>
           </section>
           <section className="channel-content">
             This is channels content speaking
