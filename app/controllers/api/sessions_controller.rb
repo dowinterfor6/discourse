@@ -14,9 +14,9 @@ class Api::SessionsController < ApplicationController
     @user = current_user
     if @user
       logout
-      render '/'
+      # redirect_to '/api/'
       # render json: {}
-      # render 'api/users/show' #Is this the right place?
+      render 'api/users/show' #Is this the right place?
       # redirect_to '/'
     else
       render json: ['Must have logged in user to log out'], status: 404
