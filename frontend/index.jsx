@@ -30,4 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+
+  window.checkValidEmail = (email) => {
+    let re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
+    return re.test(email);
+  }
 });

@@ -6,7 +6,9 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render 'api/users/show' #Is this the right info?
     else
-      render json: ['Invalid username/password combination'], status: 401 #Is this the right status?
+      flash.now[:errors] = ['here is the flash error you dumbfuck']
+      render json: flash[:errors], status: 401
+      # render json: ['Invalid username/password combination'], status: 401 #Is this the right status?
     end
   end
 

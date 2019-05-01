@@ -20,3 +20,10 @@ export const signup = (user) => (
     data: { user }
   })
 );
+
+export const hack = () => (
+  $.ajax({
+    method: 'GET',
+    url: '/'
+  })
+)

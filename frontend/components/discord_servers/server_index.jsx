@@ -10,9 +10,7 @@ class serverIndex extends React.Component {
   }
 
   handleLogout() {
-    console.log(this.props);
-    this.props.logout()
-      .then(() => this.props.history.push('/login'));
+    this.props.logout();
   }
 
   render() {

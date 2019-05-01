@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -19,6 +20,11 @@ class SessionForm extends React.Component {
     const user = merge({}, this.state);
     this.props.processForm(user)
       .then(() => this.props.history.push('/servers'));
+  }
+
+  handleFormChange() {
+    console.log(this.props);
+    this.props.deleteErrors();
   }
 
   update(field) {
@@ -51,16 +57,16 @@ class SessionForm extends React.Component {
 
     // Probably needs refactoring somehow
     // Maybe put in props?
-    let otherFormLink = null;
-    let formHeader = null;
-    let emailForm = null;
-    let forgotPassword = null;
+    let otherFormLink;
+    let formHeader;
+    let emailForm;
+    let forgotPassword;
     switch (this.props.formType) {
       case 'login':
         otherFormLink = 
           <div className='other-form-container'>
           <p>Need an account? &nbsp;</p>
-            <Link to='/signup'><h4>Register</h4></Link>
+            <Link to='/signup' onClick={this.handleFormChange}><h4>Register</h4></Link>
             <p>&nbsp; or &nbsp;</p>
             <h4 onClick={this.handleDemoLogin}>Demo Login</h4>
           </div>;
@@ -81,12 +87,16 @@ class SessionForm extends React.Component {
         emailForm = 
           <label>
             Email
-            <input type="text" onChange={this.update('email')}></input>
+            <input 
+              required 
+              type="email" 
+              onChange={this.update('email')}>
+            </input>
           </label>;
         otherFormLink =
           <div className='other-form-container'>
             <p>Already have an account? &nbsp;</p>
-            <Link to='/login'><h4>Login</h4></Link>
+            <Link to='/login' onClick={this.handleFormChange}><h4>Login</h4></Link>
             <p>&nbsp; or &nbsp;</p>
             <h4 onClick={this.handleDemoLogin}>Demo Login</h4>
           </div>;
@@ -115,11 +125,11 @@ class SessionForm extends React.Component {
             {emailForm}
             <label>
               Username
-              <input type="text" onChange={this.update('username')}></input>
+              <input required type="text" onChange={this.update('username')}></input>
             </label>
             <label>
               Password
-              <input type="password" onChange={this.update('password')}></input>
+              <input required type="password" onChange={this.update('password')}></input>
             </label>
             {forgotPassword}
             <button>{this.props.formType}</button>
