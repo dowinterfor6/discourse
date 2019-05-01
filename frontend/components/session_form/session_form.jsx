@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.processForm(user)
-    .then(() => this.props.history.push('/servers'));
+      .then(() => this.props.history.push('/servers'));
   }
 
   componentWillUnmount() {
@@ -44,8 +44,8 @@ class SessionForm extends React.Component {
   }
   
   renderErrors() {
-    let errorsParse;
     if (this.props.errors.length > 0) {
+      let errorsParse;
       const form = document.querySelector('form');
       if (!form.className.includes('error-form')) {
         form.className += ' error-form';
@@ -56,12 +56,11 @@ class SessionForm extends React.Component {
           let textContainer = document.createElement('h5');
           let errorText = `- ${errorsParse[key]}`;
           if (key === 'login') {
-            key === 'username';
+            key = 'username';
           }
           textContainer.appendChild(document.createTextNode(errorText));
           let labelContainer = document.getElementById(`${key}-label`);
-          console.log(labelContainer.childNodes.length);
-          if (labelContainer.childNodes.length > 1) {
+          if (labelContainer.childNodes && labelContainer.childNodes.length > 1) {
             labelContainer.replaceChild(textContainer, labelContainer.childNodes[1])
           } else {
             labelContainer.appendChild(textContainer);

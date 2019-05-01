@@ -6,12 +6,6 @@ class serverIndex extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  handleLogout() {
-    this.props.logout();
   }
 
   render() {
@@ -43,8 +37,7 @@ class serverIndex extends React.Component {
             <li className="add-server-icon">+</li>
           </ul>
         </aside>
-        <ChannelIndex props={this.props.logout}></ChannelIndex>
-        <button onClick={this.handleLogout}>TEMP LOGOUT</button>
+        <ChannelIndex whatever={this.props.logout}></ChannelIndex>
       </div>
     )
   }
