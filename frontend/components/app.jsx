@@ -3,6 +3,7 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import landingPage from './landing_page/landing_page';
 import login_form_container from './session_form/login_form_container';
 import signup_form_container from './session_form/signup_form_container';
+import { AuthRoute } from '../util/route_util';
 
 const App = () => (
   <div>

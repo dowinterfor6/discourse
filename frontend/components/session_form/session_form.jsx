@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       email: "",
       password: ""
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -71,7 +72,7 @@ class SessionForm extends React.Component {
         emailForm = 
           <label>
             Email
-            <input type="text"></input>
+            <input type="text" onChange={this.update('email')}></input>
           </label>;
         otherFormLink =
           <div className='other-form-container'>
@@ -99,20 +100,20 @@ class SessionForm extends React.Component {
       <div className="login-body">
         <div className="login-main">
           <Link to='/'><img src="./assets/discord-logo.png" alt="Discord Logo"></img></Link>
-          <form className="login-form">
+          <form className="login-form" onSubmit={this.handleSubmit}>
             {formHeader}
             {this.renderErrors()}
             {emailForm}
             <label>
               Username
-              <input type="text"></input>
+              <input type="text" onChange={this.update('username')}></input>
             </label>
             <label>
               Password
-              <input type="password"></input>
+              <input type="password" onChange={this.update('password')}></input>
             </label>
             {forgotPassword}
-            <button>Login</button>
+            <button>{this.props.formType}</button>
             {otherFormLink}
           </form>
         </div>
