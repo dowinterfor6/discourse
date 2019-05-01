@@ -99,9 +99,13 @@
   margin: 0;
 }
 
-.login-form a {
+.login-form a, h4 {
   color: var(--link-color);
   text-decoration: none;
+}
+
+.login-form h4:hover {
+  cursor: pointer;
 }
 
 .other-form-container {

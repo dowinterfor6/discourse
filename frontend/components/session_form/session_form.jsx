@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -22,6 +23,15 @@ class SessionForm extends React.Component {
 
   update(field) {
     return (e) => (this.setState({[field]: e.currentTarget.value}));
+  }
+
+  handleDemoLogin() {
+    const demoUser = {
+      username: 'username',
+      password: 'password'
+    };
+    this.props.demoLogin(demoUser)
+      .then(() => this.props.history.push('/servers'));
   }
   
   renderErrors() {
@@ -52,10 +62,8 @@ class SessionForm extends React.Component {
           <p>Need an account? &nbsp;</p>
             <Link to='/signup'><h4>Register</h4></Link>
             <p>&nbsp; or &nbsp;</p>
-            <Link to='/'><h4>Demo Login</h4></Link>
+            <h4 onClick={this.handleDemoLogin}>Demo Login</h4>
           </div>;
-          // Add demo login functionality later
-          // Probably change the a tags too
         formHeader = 
           <>
             <h2>Welcome back!</h2>
@@ -80,7 +88,7 @@ class SessionForm extends React.Component {
             <p>Already have an account? &nbsp;</p>
             <Link to='/login'><h4>Login</h4></Link>
             <p>&nbsp; or &nbsp;</p>
-            <Link to='/'><h4>Demo Login</h4></Link>
+            <h4 onClick={this.handleDemoLogin}>Demo Login</h4>
           </div>;
         break;
       default:
