@@ -113,6 +113,7 @@ button {
 	position: relative;
 }
 
-button:focus, button:hover:active {
+button:focus, 
+button:hover:active {
   outline: none;
 }

@@ -71,7 +71,9 @@
   outline: none;
 }
 
-.login-form h2, h3, button {
+.login-form h2, 
+h3, 
+button {
   margin: auto;
 }
 
