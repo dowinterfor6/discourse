@@ -21,7 +21,7 @@ class ChannelIndex extends React.Component {
             <i className="fas fa-search fa-2x"></i>
             <i className="fas fa-at fa-2x"></i>
             <i className="far fa-question-circle fa-2x"></i>
-            <label onClick={this.props.whatever}>
+            <label onClick={this.props.logout}>
               <span>Logout:</span>
               <i className="fas fa-sign-out-alt fa-2x"></i>
             </label>

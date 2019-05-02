@@ -76,6 +76,12 @@ h2 {
 	color: var(--font-primary);
 }
 
+h3 {
+	font-size: 1.8em;
+	text-transform: none;
+	color: var(--font-primary);	
+}
+
 h4 {
 	font-size: 15px;
 }

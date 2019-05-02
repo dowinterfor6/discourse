@@ -18,7 +18,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+      .then(() => this.props.history.push(`/servers`));
   }
 
   componentWillUnmount() {
@@ -39,6 +40,7 @@ class SessionForm extends React.Component {
       password: 'password'
     };
     this.props.demoLogin(demoUser)
+      .then(() => this.props.history.push(`/servers`));
   }
   
   renderErrors() {

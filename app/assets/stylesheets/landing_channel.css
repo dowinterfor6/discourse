@@ -1,0 +1,8 @@
+.message-container {
+  margin: 20px 0;
+}
+
+.message-container p {
+  margin: 0;
+  text-transform: uppercase;
+}
