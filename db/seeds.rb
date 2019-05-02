@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create!(username: 'username', email:'user@gmail.com' password: 'password')
+User.create!(username: 'username', email:'user@gmail.com', password: 'password')
