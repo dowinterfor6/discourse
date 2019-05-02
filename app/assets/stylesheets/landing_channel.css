@@ -23,7 +23,7 @@
   overflow-x: hidden;
 }
 
-
+/* TODO: Add styled scrollbar */
 .channels-top-info::-webkit-scrollbar {
   width: 0px;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
@@ -54,13 +54,11 @@
 /* USER INFO BAR */
 
 .user-info-bar {
-  /* width: auto; */
-  /* height: 100%; */
-  /* width: 100%; */
+  width: 250px;
   position: absolute;
   bottom: 0;
   height: 50px;
-  outline: 1px solid black;
+  border-top: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
