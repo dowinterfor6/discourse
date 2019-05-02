@@ -1,6 +1,7 @@
 :root {
   --user-bar-color: #2A2C31;
   --font-primary: #FFF;
+  --app-tertiary-background-color: #202225;
 }
 
 /* GENERAL STYLING */
@@ -11,30 +12,49 @@
   grid-template-rows: 1fr 50px;
 }
 
+
+/* TODO: FIX CONTAINER DIMENSIONS */
 .channels-top-info {
   padding: 10px 15px 50px 15px;
   width: auto;
   height: -webkit-fill-available;
 }
 
-/* https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
 .channels-top-info {
+  overflow: hidden;
+}
+
+.channels-top-info:hover {
   overflow: scroll;
   overflow-x: hidden;
+  overflow-y: auto;
+  cursor: pointer;
 }
 
 /* TODO: Add styled scrollbar */
+
+/* width */
 .channels-top-info::-webkit-scrollbar {
-  width: 0px;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  position: relative;
+  width: 10px;
+  background: transparent;
 }
 
+/* Track */
+.channels-top-info::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+.channels-top-info::-webkit-scrollbar-thumb {
+  background: var(--app-tertiary-background-color); 
+}
 
 /* ICON BAR */
 
 .header-list {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 50px 150px;
   justify-content: flex-start;
   align-items: center;
 }
