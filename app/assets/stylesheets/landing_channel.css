@@ -12,9 +12,9 @@
 }
 
 .channels-top-info {
-  padding: 10px 15px 0 15px;
+  padding: 10px 15px 50px 15px;
   width: auto;
-  height: 87vh;
+  height: -webkit-fill-available;
 }
 
 /* https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
@@ -56,7 +56,9 @@
 .user-info-bar {
   /* width: auto; */
   /* height: 100%; */
-  width: 100%;
+  /* width: 100%; */
+  position: absolute;
+  bottom: 0;
   height: 50px;
   outline: 1px solid black;
   display: flex;
