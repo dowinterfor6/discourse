@@ -1,11 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import ChannelIndex from '../channel_content/channel_index';
-import LandingChannel from '../channel_content/landing_channel';
-import { withRouter } from 'react-router';
+import LandingChannelContainer from '../channel_content/landing_channel_container';
 
 class serverIndex extends React.Component {
-
   constructor(props) {
     super(props);
   }
@@ -39,11 +37,12 @@ class serverIndex extends React.Component {
             <li className="add-server-icon">+</li>
           </ul>
         </aside>
-        <LandingChannel logout={this.props.logout}/>
+        <LandingChannelContainer />
+        {/* <LandingChannel logout={this.props.logout}/> */}
         {/* <ChannelIndex logout={this.props.logout}></ChannelIndex> */}
       </div>
     )
   }
 }
 
-export default withRouter(serverIndex);
+export default serverIndex;

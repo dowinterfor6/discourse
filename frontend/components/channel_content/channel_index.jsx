@@ -42,7 +42,7 @@ class ChannelIndex extends React.Component {
         </section>
         <section className="channel-content">
           This is channels content speaking
-          </section>
+        </section>
       </div>
     )
   }
