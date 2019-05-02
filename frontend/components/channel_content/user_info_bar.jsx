@@ -10,6 +10,6 @@ const UserInfoBar = ({currentUser, logout}) => (
       </label>
     </div>
   </section>
-)
+);
 
-export default UserInfoBar
+export default UserInfoBar;

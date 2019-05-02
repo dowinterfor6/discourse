@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserInfoBar from './user_info_bar';
+import ActivityDisplay from './activity_display';
 
 class LandingChannel extends React.Component {
 
@@ -77,9 +78,7 @@ class LandingChannel extends React.Component {
           <UserInfoBar currentUser={this.props.currentUser} logout={this.props.logout}/>
         </section>
 
-        <section className="channel-content">
-          This is channels content speaking
-        </section>
+        <ActivityDisplay />
       </div>
     )
   }
