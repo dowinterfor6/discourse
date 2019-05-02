@@ -9,7 +9,13 @@
     <%= javascript_include_tag 'application' %>
     <link rel="icon" href="./assets/discord-favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    
+    <script type="text/javascript">
+      window.discordBackgroundURL = "<%= image_url('discord-background.png') %>";
+      window.discordFaviconURL = "<%= image_url('discord-favicon.png') %>";
+      window.discordLogoURL = "<%= image_url('discord-logo.png') %>";
+      window.discordSmallLogoURL = "<%= image_url('discord-small-logo.png') %>";
+      window.loginBackgroundURL = "<%= image_url('login-background.jpg') %>";
+    </script>
   </head>
 
   <body>

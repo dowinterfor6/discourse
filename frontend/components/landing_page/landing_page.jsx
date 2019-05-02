@@ -5,7 +5,7 @@ const landingPage = () => (
   <>
     <nav className="nav-bar">
       <ul className="left-nav">
-        <li><img src="./assets/discord-logo.png" alt="Discord Logo"></img></li>
+        <li><img src={window.discordLogoURL} alt="Discord Logo"></img></li>
         <li>Download</li>
         <li>Nitro</li>
         <li>Jobs</li>
@@ -40,7 +40,7 @@ const landingPage = () => (
       <section className="footer">
         <ul>
           <ul id="foot-header" className="header">
-            <img src="./assets/discord-small-logo.png" alt="Discord Small Logo"></img>
+            <img src={window.discordSmallLogoURL} alt="Discord Small Logo"></img>
           </ul>
           <ul id="foot-header">
             <li id="header">Product</li>
