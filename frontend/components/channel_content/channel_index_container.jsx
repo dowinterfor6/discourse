@@ -1,9 +1,11 @@
 import { logout } from "../../actions/session_actions";
 import { connect } from "react-redux";
-import serverIndex from "./server_index";
+import ChannelIndex from "./channel_index";
 
-const mapStateToProps = (state, ownProps) => {
-  
+const mapStateToProps = (state) => {
+  return {
+    currentUser: Object.values(state.entities.users)[0]
+  }
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -11,6 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
-)(serverIndex);
+)(ChannelIndex);

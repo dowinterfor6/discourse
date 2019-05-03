@@ -27,6 +27,7 @@
 .discord-nav-bar {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   background-color: var(--app-tertiary-background-color);
@@ -43,7 +44,9 @@
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
-.discord-nav-bar li {
+.discord-nav-bar li,
+.home-icon,
+.add-server-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,27 +58,32 @@
   width: 50px;
 }
 
-.discord-nav-bar li:nth-of-type(2) {
-  border-radius: 0px;
-  background-color: inherit;
-  margin: auto;
-  height: 1px;
-  width: 66%;
-  border-bottom: 1px solid white;
-}
-
-.discord-nav-bar li:hover {
+.discord-nav-bar li:hover,
+.home-icon:hover,
+.add-server-icon:hover {
+  cursor: pointer;
   transition-duration: 0.1s;
   border-radius: 15px;
   background-color: var(--primary-hover-color);
 }
 
-.discord-nav-bar li:last-of-type {
+.home-icon,
+.add-server-icon {
+  min-height: 50px;
+  min-width: 50px;
+}
+
+.home-icon {
+  margin: 10px auto 0 auto;
+}
+
+.add-server-icon {
+  margin: 0 auto 10px auto;
   font-size: 3em;
   color: var(--secondary-hover-color);
 }
 
-.discord-nav-bar li:last-of-type:hover {
+.add-server-icon:hover {
   color: var(--font-primary);
   background-color: var(--secondary-hover-color);
 }

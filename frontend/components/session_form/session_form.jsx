@@ -19,7 +19,11 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.processForm(user)
-      .then(() => this.props.history.push(`/servers`));
+      .then(() => {
+        if (this.props.match.path.url === '/servers') {
+          return this.props.history.push('/servers');
+        }
+      });
   }
 
   componentWillUnmount() {
@@ -40,7 +44,11 @@ class SessionForm extends React.Component {
       password: 'password'
     };
     this.props.demoLogin(demoUser)
-      .then(() => this.props.history.push(`/servers`));
+      .then(() => {
+        if (this.props.match.path.url === '/servers') {
+          return this.props.history.push('/servers');
+        }
+      });
   }
   
   renderErrors() {

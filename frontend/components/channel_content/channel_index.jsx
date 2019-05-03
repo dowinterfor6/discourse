@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserInfoBar from './user_info_bar';
 
 class ChannelIndex extends React.Component {
   render() {
     return (
       <div className="discord-main-content-container">
         <section className="title">
-          <h2>Some discord name</h2>
+          <h2>Some discord name, url:{this.props.match.params.id}</h2>
         </section>
+
         <section className="description">
           <div className="left-description">
             <i className="fas fa-hashtag fa-2x"></i>
@@ -21,13 +23,11 @@ class ChannelIndex extends React.Component {
             <i className="fas fa-search fa-2x"></i>
             <i className="fas fa-at fa-2x"></i>
             <i className="far fa-question-circle fa-2x"></i>
-            <label onClick={this.props.logout}>
-              <span>Logout:</span>
-              <i className="fas fa-sign-out-alt fa-2x"></i>
-            </label>
           </div>
         </section>
+
         <section className="channels">
+          {/* TODO: refactor and add channel_list_item component */}
           <ul>
             <li><i className="fas fa-hashtag"></i> assembly-general</li>
             <li><i className="fas fa-hashtag"></i> generally-not-eso</li>
@@ -39,8 +39,11 @@ class ChannelIndex extends React.Component {
             <li><i className="fas fa-hashtag"></i> dump-general</li>
             <li><i className="fas fa-hashtag"></i> rhytm-general</li>
           </ul>
+          <UserInfoBar currentUser={this.props.currentUser} logout={this.props.logout} />
         </section>
+        
         <section className="channel-content">
+          {/* TODO: do dis */}
           This is channels content speaking
         </section>
       </div>
