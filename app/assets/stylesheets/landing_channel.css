@@ -151,16 +151,17 @@
 }
 
 .activities-display-list li {
-  border: 1px solid red;
+  border: 2px solid black;
   border-radius: 5px;
   height: 450px;
+  cursor: auto;
+  background-color: var(--app-tertiary-background-color);
 }
 
 .activities-display-list {
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
-  cursor: pointer;
 }
 
 /* width */
@@ -177,4 +178,23 @@
 /* Handle */
 .activities-display-list::-webkit-scrollbar-thumb {
   background: var(--app-tertiary-background-color); 
+}
+
+/* Activity display content */
+
+.activity-video-content {
+  width: 100%;
+  height: 50%;
+}
+
+.activity-photo-content {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+
+}
+
+.activity-content-text {
+  font-size: 18px;
+  padding: 10px;
 }
