@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 // TESTING STUFF HERE
 import * as sessionApiUtil from './util/session_api_util';
+import * as serverApiUtil from './util/server_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore();
@@ -30,4 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+
+  window.createServer = serverApiUtil.createServer;
+  window.deleteServer = serverApiUtil.deleteServer;
+  window.showServer = serverApiUtil.showServer;
+  window.serverIndex = serverApiUtil.serverIndex;
 });

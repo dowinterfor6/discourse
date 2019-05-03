@@ -97,7 +97,6 @@
 .user-info-bar {
   width: 100%;
   min-height: 50px;
-  border-top: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;

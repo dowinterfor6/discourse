@@ -15,6 +15,7 @@ class Api::ServersController < ApplicationController
     server = Server.find_by(id: params[:id])
     if (server)
       server.destroy!
+      # TODO: FIX THIS
       index
     else
       render json: { errors: "You cannot destroy a server that doesn't exist!" }, status: 404
