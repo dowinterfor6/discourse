@@ -21,6 +21,12 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :user_servers
+  has_many :servers, through: :user_servers
+  has_many :owned_servers,
+    foreign_key: :owner_id,
+    class_name: :Server
+
   # Add associations here
 
   def reset_session_token!
