@@ -137,7 +137,7 @@
 .activity-display-container {
   display: flex;
   background-color: var(--app-primary-background-color);
-  height: calc(100vh - 50px);
+  height: calc(100vh - 70px);
   width: auto;
   padding: 20px 20px 0 20px;
 }

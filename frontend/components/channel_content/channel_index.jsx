@@ -7,7 +7,7 @@ class ChannelIndex extends React.Component {
     return (
       <div className="discord-main-content-container">
         <section className="title">
-          <h2>Some discord name, url:{this.props.match.params.id}</h2>
+          <h2>Some discord name, {this.props.match.params.id}</h2>
         </section>
 
         <section className="description">

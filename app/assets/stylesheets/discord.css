@@ -74,7 +74,20 @@
 }
 
 .home-icon {
-  margin: 10px auto 0 auto;
+  margin: 10px auto 7.5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-icon i {
+  margin: auto;
+}
+
+.home-icon-divider {
+  min-height: 1px;
+  width: 60%;
+  background-color: var(--app-primary-background-color);
 }
 
 .add-server-icon {

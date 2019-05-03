@@ -26,7 +26,8 @@ class serverIndex extends React.Component {
     return (
       <div className="discord-main">
         <aside className="discord-nav-bar" scrolling="no">
-          <Link to="/servers"><div className="home-icon">Home</div></Link>
+          <Link to="/servers"><div className="home-icon"><i className="fas fa-home fa-2x"></i></div></Link>
+          <div className="home-icon-divider"></div>
           {/* TODO: Temporary testing */}
           <ul>
             <li onClick={this.handleServerNavigation}>1</li>
