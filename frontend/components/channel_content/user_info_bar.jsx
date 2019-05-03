@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserInfoBar = ({currentUser, logout}) => (
   <section className="user-info-bar">
-    <h5>Welcome: {currentUser.username}</h5>
+    <h5>{currentUser.username}</h5>
     <div className="nav-icon-container">
       <i className="fas fa-cog fa-2x"></i> 
       <label onClick={logout}>
