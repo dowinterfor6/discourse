@@ -12,7 +12,15 @@ class Api::ServersController < ApplicationController
   end
 
   def destroy
-    render 'api/servers/index'
+    server = Server.find_by(id: params[:id])
+    if (server)
+      server.destroy!
+      index
+    else
+      render json: { errors: "You cannot destroy a server that doesn't exist!" }, status: 404
+    end
+    # @servers = Server.all
+    # render 'api/servers/index'
   end
 
   def index
@@ -20,7 +28,7 @@ class Api::ServersController < ApplicationController
     if @servers
       render 'api/servers/index'
     else
-      render json: { errors: 'You cannot access a server you are not in!'}, status: 401
+      render json: { errors: 'You cannot access a server you are not in!' }, status: 401
     end
   end
 

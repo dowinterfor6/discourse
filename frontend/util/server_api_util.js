@@ -8,15 +8,21 @@ export const serverIndex = () => (
 export const showServer = (id) => (
   $.ajax({
     method: 'GET',
-    url: '/api/server',
-    data: { id }
+    url: `/api/servers/${id}`
   })
 );
 
 export const createServer = (server) => (
   $.ajax({
     method: 'POST',
-    url: '/api/server',
+    url: '/api/servers',
     data: { server }
+  })
+)
+
+export const deleteServer = (id) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/servers/${id}`
   })
 )
