@@ -7,7 +7,6 @@ class Api::UsersController < ApplicationController
       render 'api/users/show' #Is this the right place?
     else
       render json: @user.errors.full_messages, status: 422 #Is this the right status?
-      #needs to only show until rerender, use flash.now?
     end
   end
 

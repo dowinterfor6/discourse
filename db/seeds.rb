@@ -7,28 +7,38 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create!(id: 1, username: 'demo_user', email:'demo@gmail.com', password: 'password')
-User.create!(id: 2, username: 'dowinterfor6', email:'winter@gmail.com', password: 'dowinterfor6')
-User.create!(id: 3, username: 'username', email:'user@gmail.com', password: 'password')
-User.create!(id: 4, username: 'billybob', email:'billybob@gmail.com', password: 'password')
-User.create!(id: 5, username: 'ginger_baker', email:'gbaker@gmail.com', password: 'password')
+User.create!(username: 'demo_user', email:'demo@gmail.com', password: 'password')
+User.create!(username: 'dowinterfor6', email:'winter@gmail.com', password: 'dowinterfor6')
+User.create!(username: 'username', email:'user@gmail.com', password: 'password')
+User.create!(username: 'billybob', email:'billybob@gmail.com', password: 'password')
+User.create!(username: 'ginger_baker', email:'gbaker@gmail.com', password: 'password')
+
+user_1 = User.find_by(username: 'demo_user')
+user_2 = User.find_by(username: 'dowinterfor6')
+user_3 = User.find_by(username: 'username')
+user_4 = User.find_by(username: 'billybob')
+user_5 = User.find_by(username: 'ginger_baker')
 
 Server.destroy_all
-Server.create!(id: 1, name: "Demo user's amazing server", owner_id: 1)
-Server.create!(id: 2, name: 'Elder Memes Online', owner_id: 2)
-Server.create!(id: 3, name: "Bakers' hangout", owner_id: 5)
+Server.create!(name: "Demo user's amazing server", owner_id: user_1.id)
+Server.create!(name: 'Elder Memes Online', owner_id: user_2.id)
+Server.create!(name: "Bakers' hangout", owner_id: user_5.id)
+
+server_1 = Server.find_by(name: "Demo user's amazing server")
+server_2 = Server.find_by(name: 'Elder Memes Online')
+server_3 = Server.find_by(name: "Bakers' hangout")
 
 UserServer.destroy_all
-UserServer.create!(user_id: 1,server_id: 1)
-UserServer.create!(user_id: 2,server_id: 1)
-UserServer.create!(user_id: 3,server_id: 1)
-UserServer.create!(user_id: 4,server_id: 1)
-UserServer.create!(user_id: 5,server_id: 1)
+UserServer.create!(user_id: user_1.id,server_id: server_1.id)
+UserServer.create!(user_id: user_2.id,server_id: server_1.id)
+UserServer.create!(user_id: user_3.id,server_id: server_1.id)
+UserServer.create!(user_id: user_4.id,server_id: server_1.id)
+UserServer.create!(user_id: user_5.id,server_id: server_1.id)
 
-UserServer.create!(user_id: 2,server_id: 2)
-UserServer.create!(user_id: 4,server_id: 2)
-UserServer.create!(user_id: 5,server_id: 2)
+UserServer.create!(user_id: user_2.id,server_id: server_2.id)
+UserServer.create!(user_id: user_4.id,server_id: server_2.id)
+UserServer.create!(user_id: user_5.id,server_id: server_2.id)
 
-UserServer.create!(user_id: 5,server_id: 3)
-UserServer.create!(user_id: 1,server_id: 3)
-UserServer.create!(user_id: 3,server_id: 3)
+UserServer.create!(user_id: user_5.id,server_id: server_3.id)
+UserServer.create!(user_id: user_1.id,server_id: server_3.id)
+UserServer.create!(user_id: user_3.id,server_id: server_3.id)
