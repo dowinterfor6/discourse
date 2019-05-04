@@ -5,6 +5,8 @@ import LandingChannelContainer from '../channel_content/landing_channel_containe
 import ChannelIndexContainer from '../channel_content/channel_index_container';
 import {withRouter} from 'react-router-dom';
 import ServerListItem from './server_list_item';
+import AddServerContainer from './add_server_container';
+import AddServerIcon from './add_server_icon';
 
 class serverIndex extends React.Component {
   constructor(props) {
@@ -12,7 +14,6 @@ class serverIndex extends React.Component {
     this.state = {
       servers: {}
     }
-    this.handleServerNavigation = this.handleServerNavigation.bind(this);
   }
 
   componentDidMount() {
@@ -41,7 +42,8 @@ class serverIndex extends React.Component {
               <ServerListItem key={id} server={this.state.servers[id]}/>
             ))}
           </ul>
-          <div className="add-server-icon">+</div>
+
+          <AddServerContainer />
         </aside>
         <Switch>
           <ProtectedRoute exact path="/servers" component={LandingChannelContainer}></ProtectedRoute>
