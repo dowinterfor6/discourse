@@ -17,8 +17,8 @@ const receiveServer = (server) => ({
   server
 });
 
-//TODO: What do i pass in here?! is this what server controller renders?
-const removeServer = ({id}) => ({
+//TODO: Passing in ID (to get from match.params.id)
+const removeServer = (id) => ({
   type: REMOVE_SERVER,
   id
 })
@@ -41,6 +41,7 @@ export const fetchAllServers = () => (dispatch) => (
     )
 );
 
+//TODO: Returns server, use .then
 export const fetchServer = (id) => (dispatch) => (
   APIUtil.showServer(id)
     .then(
@@ -49,8 +50,6 @@ export const fetchServer = (id) => (dispatch) => (
     )
 );
 
-//TODO: state id doesn't match server ID
-//TODO: new server isn't created as an object
 export const createServer = (newServer) => (dispatch) => (
   APIUtil.createServer(newServer)
     .then(
@@ -59,8 +58,10 @@ export const createServer = (newServer) => (dispatch) => (
     )
 )
 
-export const deleteServer = () => (dispatch) => (
-  APIUtil.deleteServer()
+
+//TODO: returns information on action creator
+export const deleteServer = (id) => (dispatch) => (
+  APIUtil.deleteServer(id)
     .then(
       (server) => dispatch(removeServer(server)),
       (errors) => dispatch(receiveErrors(errors))
