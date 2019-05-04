@@ -12,16 +12,15 @@ class Api::ServersController < ApplicationController
   end
 
   def destroy
-    server = Server.find_by(id: params[:id])
-    if (server)
-      server.destroy!
-      # TODO: FIX THIS
-      index
+    @server = Server.find_by(id: params[:id])
+    if (@server)
+      @server.destroy!
+      # TODO: FIX THIS, does this work this way with actions now?
+      # index
+      render 'api/servers/show'
     else
       render json: { errors: "You cannot destroy a server that doesn't exist!" }, status: 404
     end
-    # @servers = Server.all
-    # render 'api/servers/index'
   end
 
   def index

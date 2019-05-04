@@ -5,12 +5,14 @@ import configureStore from './store/store';
 // TESTING STUFF HERE
 import * as sessionApiUtil from './util/session_api_util';
 import * as serverApiUtil from './util/server_api_util';
+import { fetchAllServers, fetchServer, createServer, deleteServer } from './actions/server_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore();
   let store;
   if (window.currentUser) {
     const preloadedState = {
+      // TODO: Add server slice of state
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       },
@@ -36,4 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deleteServer = serverApiUtil.deleteServer;
   window.showServer = serverApiUtil.showServer;
   window.serverIndex = serverApiUtil.serverIndex;
+
+  window.fetchAllServers = fetchAllServers;
+  window.fetchServer = fetchServer;
+  window.createServer = createServer;
+  window.deleteServer = deleteServer;
 });
