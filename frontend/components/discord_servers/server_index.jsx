@@ -4,55 +4,45 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import LandingChannelContainer from '../channel_content/landing_channel_container';
 import ChannelIndexContainer from '../channel_content/channel_index_container';
 import {withRouter} from 'react-router-dom';
+import ServerListItem from './server_list_item';
 
 class serverIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      servers: {}
+    }
     this.handleServerNavigation = this.handleServerNavigation.bind(this);
   }
 
-  handleServerNavigation(e) {
-    // TODO: Use this differently later
-    // TODO: Write if ciheck for active selection later
-    let serverId = e.currentTarget.innerHTML;
-    // console.log(this.props);
-    // console.log(this.state);
-    // if (this.props.match.params.id != serverId) {
-      this.props.history.push(`/servers/${serverId}`);
-    // }
+  componentDidMount() {
+    this.props.fetchAllServers().then(
+      () => this.setState({
+        servers: this.props.servers
+      })
+    )
+  }
+
+  //TODO: Temporary solution until i do channels and new "auth" routes
+  //TODO: THIS DOESN"T WORK LMAO
+  componentDidUpdate() {
+
   }
 
   render() {
+    let serverIds = Object.keys(this.state.servers);
     return (
       <div className="discord-main">
         <aside className="discord-nav-bar" scrolling="no">
           <Link to="/servers"><div className="home-icon"><i className="fas fa-home fa-2x"></i></div></Link>
           <div className="home-icon-divider"></div>
-          {/* TODO: Temporary testing */}
           <ul>
-            <li onClick={this.handleServerNavigation}>1</li>
-            <li onClick={this.handleServerNavigation}>2</li>
-            <li onClick={this.handleServerNavigation}>3</li>
-            <li onClick={this.handleServerNavigation}>4</li>
-            <li onClick={this.handleServerNavigation}>5</li>
-            <li onClick={this.handleServerNavigation}>6</li>
-            <li onClick={this.handleServerNavigation}>7</li>
-            <li onClick={this.handleServerNavigation}>8</li>
-            <li onClick={this.handleServerNavigation}>9</li>
-            <li onClick={this.handleServerNavigation}>10</li>
-            <li onClick={this.handleServerNavigation}>11</li>
-            <li onClick={this.handleServerNavigation}>12</li>
-            <li onClick={this.handleServerNavigation}>13</li>
-            <li onClick={this.handleServerNavigation}>14</li>
-            <li onClick={this.handleServerNavigation}>15</li>
-            <li onClick={this.handleServerNavigation}>16</li>
-            <li onClick={this.handleServerNavigation}>17</li>
-            <li onClick={this.handleServerNavigation}>18</li>
-            <li onClick={this.handleServerNavigation}>19</li>
+            {serverIds.map((id) => (
+              <ServerListItem key={id} server={this.state.servers[id]}/>
+            ))}
           </ul>
           <div className="add-server-icon">+</div>
         </aside>
-        {/* <LandingChannelContainer /> */}
         <Switch>
           <ProtectedRoute exact path="/servers" component={LandingChannelContainer}></ProtectedRoute>
           <ProtectedRoute path="/servers/:id" component={ChannelIndexContainer}></ProtectedRoute>
