@@ -66,13 +66,18 @@ class ServerModal extends React.Component {
         <p>By creating a server, you will have access to free voice and text
           (coming soon, not guaranteed) chat to use amongst your friends.
         </p>
-        <div className="modal-form-container">
+        <div className="modal-form-input">
           <label>
             Server Name
-            <input type="text" placeholder="Enter a server name" />
-            <button onClick={this.handleBack}>Back</button>
-            <button>Create</button>
           </label>
+          <input type="text" placeholder="Enter a server name" />
+        </div>
+        <div className="modal-form-nav">
+          <div className="back-nav" onClick={this.handleBack}>
+            <i className="fas fa-arrow-left"></i>
+            Back
+          </div>
+          <button>Create</button>
         </div>
       </div>
     )
@@ -87,12 +92,15 @@ class ServerModal extends React.Component {
         </p>
         {/* TODO: ADD BETTER SAMPLE */}
         <h6>discourse_invite/afJeaE3C</h6>
-        <div className="modal-form-container">
-          <label>
-            <input type="text" placeholder="Enter an instant invite" />
-            <button onClick={this.handleBack}>Back</button>
-            <button>Join</button>
-          </label>
+        <div className="modal-form-input">
+          <input type="text" placeholder="Enter an instant invite" />
+        </div>
+        <div className="modal-form-nav">
+          <div className="back-nav" onClick={this.handleBack}>
+            <i className="fas fa-arrow-left"></i> 
+            Back
+          </div>
+          <button>Join</button>
         </div>
       </div>
     )

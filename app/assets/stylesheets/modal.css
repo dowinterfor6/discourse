@@ -36,11 +36,13 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
+  text-align: center;
 }
 
 .modal-form-index h1 {
   color: var(--modal-header-color);
   margin-bottom: 50px;
+  text-transform: uppercase;
 }
 
 .modal-form-container {
@@ -104,6 +106,62 @@
   justify-content: space-between;
   height: 100%;
   width: 100%;
+}
+
+.back-nav {
+  width: 75px;
+  color: grey;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-nav:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.modal-form-input {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modal-form-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-form-nav button {
+  width: 150px;
+  margin: 0;
+}
+
+/* MODAL JOIN CSS */
+
+.modal-form-join h1 {
+  color: var(--modal-join-color);
+}
+
+.modal-form-join button {
+  background-color: var(--modal-join-color);
+}
+
+.modal-form-join h1 {
+  margin-bottom: 25px;
+}
+
+.modal-form-join button:hover {
+  background-color: #36956a;
+}
+
+/* MODAL CREATE CSS */
+
+.modal-form-create button:hover {
+  background-color: #5f74bb;
 }
 
 /* MODAL ANIMATIONS */
