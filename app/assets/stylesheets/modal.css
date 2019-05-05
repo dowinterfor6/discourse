@@ -1,4 +1,10 @@
+:root {
+  --modal-header-color: #7289da;
+  --modal-join-color: #3ca374;
+}
+
 .modal-background {
+  display: flex;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -6,11 +12,85 @@
   left: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
+  height: 100vh;
+  width: 100vw;
 }
 
 .modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 550px;
+  height: 400px;
+}
+
+.modal-form-index {
+  border-radius: 5px;
+  width: 450px;
+  height: 300px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.modal-form-index h1 {
+  color: var(--modal-header-color);
+  margin-bottom: 50px;
+}
+
+.modal-form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  height: 300px;
+}
+
+.modal-form-container label {
+  color: black;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.modal-link-container { 
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: black;
+  height: calc(100% - 20px);
+  width: 40%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.modal-link-container button {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modal-link-container h2, h5 {
+  color: black;
+}
+
+.join h2 {
+  color: var(--modal-join-color);
+}
+
+.join button {
+  background-color: var(--modal-join-color);
+}
+
+.join button:hover {
+  background-color: #36956a;
+}
+
+.create button:hover {
+  background-color: #5f74bb;
 }
