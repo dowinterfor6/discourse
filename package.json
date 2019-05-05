@@ -1,7 +1,7 @@
 {
-  "name": "discord-clone",
+  "name": "discourse",
   "version": "1.0.0",
-  "description": "a discord clone, cordless!",
+  "description": "Discourse, A Discord clone!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

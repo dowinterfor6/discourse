@@ -5,6 +5,10 @@ import ActivityDisplay from './activity_display';
 
 class LandingChannel extends React.Component {
 
+  componentDidMount() {
+    document.title = 'Activity';
+  }
+
   render() {
     let currentUser = this.props.currentUser;
 
