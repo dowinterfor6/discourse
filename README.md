@@ -1,1 +1,1 @@
-# Discourse, a Discord clone
+# Discourse - A Discord clone

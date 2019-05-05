@@ -34,6 +34,10 @@ class SessionForm extends React.Component {
     this.renderErrors();
   }
 
+  componentDidMount() {
+    document.title = 'Discourse - A Discord clone';
+  }
+
   update(field) {
     return (e) => (this.setState({[field]: e.currentTarget.value}));
   }

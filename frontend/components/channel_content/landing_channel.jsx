@@ -5,8 +5,18 @@ import ActivityDisplay from './activity_display';
 
 class LandingChannel extends React.Component {
 
+  updateDocumentTitle() {
+    if (document.title !== 'Activity') {
+      document.title = 'Activity';
+    }
+  }
+
+  componentDidUpdate() {
+    this.updateDocumentTitle();
+  }
+
   componentDidMount() {
-    document.title = 'Activity';
+    this.updateDocumentTitle();
   }
 
   render() {

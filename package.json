@@ -1,7 +1,7 @@
 {
   "name": "discourse",
   "version": "1.0.0",
-  "description": "Discourse, A Discord clone!",
+  "description": "Discourse - A Discord clone!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
