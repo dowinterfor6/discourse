@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dowinterfor6/discord-clone.git"
+    "url": "git+https://github.com/dowinterfor6/discourse.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dowinterfor6/discord-clone/issues"
+    "url": "https://github.com/dowinterfor6/discourse/issues"
   },
-  "homepage": "https://github.com/dowinterfor6/discord-clone#readme",
+  "homepage": "https://github.com/dowinterfor6/discourse#readme",
   "dependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
