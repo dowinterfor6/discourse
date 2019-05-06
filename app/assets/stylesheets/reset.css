@@ -116,5 +116,5 @@ button {
 
 button:focus, 
 button:hover:active {
-  outline: none;
+	outline: none;
 }

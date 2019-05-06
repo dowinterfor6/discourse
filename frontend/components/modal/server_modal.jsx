@@ -59,8 +59,14 @@ class ServerModal extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createServer(this.state.data)
-      .then((res) => this.props.history.push(`${res.server.id}`))
-      .then(() => this.props.closeModal())
+      .then(
+        (res) => {
+          console.log(this.props);
+          this.props.closeModal();
+          this.props.updateServerList();
+          this.props.history.push(`/servers/${res.server.id}`);
+        }
+      )
   }
 
   index() {

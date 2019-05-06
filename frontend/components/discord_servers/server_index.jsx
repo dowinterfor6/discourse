@@ -14,9 +14,14 @@ class serverIndex extends React.Component {
     this.state = {
       servers: {}
     }
+    this.updateServerList = this.updateServerList.bind(this);
   }
 
   componentDidMount() {
+    this.updateServerList();
+  }
+
+  updateServerList() {
     this.props.fetchAllServers().then(
       () => this.setState({
         servers: this.props.servers
@@ -26,8 +31,10 @@ class serverIndex extends React.Component {
 
   //TODO: Temporary solution until i do channels and new "auth" routes
   //TODO: THIS DOESN"T WORK LMAO
-  componentDidUpdate() {
-
+  componentDidUpdate(prevProps) {
+    if (prevProps.servers.length !== this.props.servers.length) {
+      console.log('time to update!');
+    }
   }
 
   render() {
@@ -43,7 +50,7 @@ class serverIndex extends React.Component {
             ))}
           </ul>
 
-          <AddServerContainer />
+          <AddServerContainer updateServerList={this.updateServerList}/>
         </aside>
         <Switch>
           <ProtectedRoute exact path="/servers" component={LandingChannelContainer}></ProtectedRoute>
