@@ -20,9 +20,9 @@ user_4 = User.find_by(username: 'billybob')
 user_5 = User.find_by(username: 'ginger_baker')
 
 Server.destroy_all
-Server.create!(name: "Demo user's amazing server", owner_id: user_1.id)
-Server.create!(name: 'Elder Memes Online', owner_id: user_2.id)
-Server.create!(name: "Bakers' hangout", owner_id: user_5.id)
+Server.create!(name: "Demo user's amazing server", owner_id: user_1.id, invite_link: "discourse_invite/4hPkZ5_oRK-pc53WBAU0MQ")
+Server.create!(name: 'Elder Memes Online', owner_id: user_2.id, invite_link: "discourse_invite/EHIw9SswhUSwABrqsKzGvg")
+Server.create!(name: "Bakers' hangout", owner_id: user_5.id, invite_link: "discourse_invite/2o03IdUt26KZDZVZ1fEcjA")
 
 server_1 = Server.find_by(name: "Demo user's amazing server")
 server_2 = Server.find_by(name: 'Elder Memes Online')

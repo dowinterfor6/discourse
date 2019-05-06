@@ -3,11 +3,49 @@ import { Link } from 'react-router-dom';
 import UserInfoBar from './user_info_bar';
 
 class ChannelIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentServer: {},
+      servers: {}
+    };
+    this.updateStateWithFetch = this.updateStateWithFetch.bind(this);
+  }
+
+  updateStateWithFetch() {
+    this.props.fetchAllServers()
+      .then(
+        (res) => this.setState({ servers: res.servers })
+      ).then(
+        () => this.setState({ currentServer: this.state.servers[this.props.match.params.id] })
+      )
+  }
+
+  componentDidMount() {
+    this.updateStateWithFetch();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.updateStateWithFetch();
+    }
+  }
+
   render() {
+    let serverName;
+    let serverInviteLink;
+    if (this.state.currentServer) {
+      serverName = this.state.currentServer.name;
+      document.title = serverName; //TODO: CHANGE TO CHANNEL NAME LATER
+      serverInviteLink = this.state.currentServer.invite_link;
+    }
+    console.log('RENDERING');
+    console.log(this.state);
+
     return (
       <div className="discord-main-content-container">
         <section className="title">
-          <h2>Some discord name, {this.props.match.params.id}</h2>
+          <h2>{serverName}</h2>
         </section>
 
         <section className="description">
@@ -27,6 +65,14 @@ class ChannelIndex extends React.Component {
         </section>
 
         <section className="channels">
+          <div className="invite-link">
+            <p>
+              Invite your friends! 
+            </p>
+            <a>
+              {serverInviteLink}
+            </a>
+          </div>
           {/* TODO: refactor and add channel_list_item component */}
           <ul>
             <li><i className="fas fa-hashtag"></i> assembly-general</li>
