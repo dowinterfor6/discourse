@@ -7,9 +7,11 @@ class ChannelIndex extends React.Component {
     super(props);
     this.state = {
       currentServer: {},
-      servers: {}
+      servers: {},
+      dropdownState: false
     };
     this.updateStateWithFetch = this.updateStateWithFetch.bind(this);
+    this.handleDropdownIconClick = this.handleDropdownIconClick.bind(this);
   }
 
   updateStateWithFetch() {
@@ -24,28 +26,76 @@ class ChannelIndex extends React.Component {
   componentDidMount() {
     this.updateStateWithFetch();
   }
-
+  
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
+      let dropdownComponent = document.getElementsByClassName('channel-title-dropdown')[0];
+      dropdownComponent.classList.add('hidden');
+      this.setState({dropdownState: false});
       this.updateStateWithFetch();
     }
+  }
+
+  handleDropdownIconClick(e) {
+    let dropdownNextState = !this.state.dropdownState;
+    let dropdownComponent = document.getElementsByClassName('channel-title-dropdown')[0];
+    if (!this.state.dropdownState) {
+      dropdownComponent.classList.remove('hidden');
+      dropdownComponent.classList.add('slideInDown');
+      window.setTimeout(() => {
+        dropdownComponent.classList.remove('slideInDown');
+      }, 200)
+    } else {
+      dropdownComponent.classList.add('hidden');
+    }
+    this.setState({dropdownState: dropdownNextState});
   }
 
   render() {
     let serverName;
     let serverInviteLink;
+    let currentUserId;
+    let currentServerOwnerId;
     if (this.state.currentServer) {
       serverName = this.state.currentServer.name;
       document.title = serverName; //TODO: CHANGE TO CHANNEL NAME LATER
       serverInviteLink = this.state.currentServer.invite_link;
+      currentUserId = this.props.currentUser.id;
+      currentServerOwnerId = this.state.currentServer.owner_id;
     }
-    console.log('RENDERING');
-    console.log(this.state);
 
     return (
       <div className="discord-main-content-container">
         <section className="title">
-          <h2>{serverName}</h2>
+          <div className="channel-title-container">
+            <h2>{serverName}</h2>
+            <div onClick={this.handleDropdownIconClick} className="dropdown-icon">
+              {this.state.dropdownState ? 
+                <i className="fas fa-chevron-up fa-2x"></i>
+                :
+                <i className="fas fa-chevron-down fa-2x"></i>
+              }
+            </div>
+            <div className="dropdown-container">
+              <ul className="channel-title-dropdown hidden">
+                <li>
+                  <i class="fas fa-plus"></i>
+                  Invite your friends!
+                </li>
+                {currentUserId === currentServerOwnerId ? 
+                  <li>
+                    <i className="far fa-trash-alt"></i>
+                    Delete server
+                  </li> 
+                  : 
+                  <li>
+                    <i className="fas fa-door-open"></i>
+                    Leave server
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section className="description">
@@ -54,21 +104,18 @@ class ChannelIndex extends React.Component {
             <h2>IS-A-MUCH-GOOD-SUCH-WOW-DISCORD</h2>
           </div>
           <div className="right-description">
-            <i className="fas fa-bell fa-2x"></i>
+            {/* <i className="fas fa-bell fa-2x"></i>
             <i className="fas fa-thumbtack fa-2x"></i>
-            <i className="fas fa-users fa-2x"></i>
+            <i className="fas fa-users fa-2x"></i> */}
             <input type="text" placeholder="search"></input>
             <i className="fas fa-search fa-2x"></i>
-            <i className="fas fa-at fa-2x"></i>
+            {/* <i className="fas fa-at fa-2x"></i> */}
             <i className="far fa-question-circle fa-2x"></i>
           </div>
         </section>
 
         <section className="channels">
           <div className="invite-link">
-            <p>
-              Invite your friends! 
-            </p>
             <a>
               {serverInviteLink}
             </a>
