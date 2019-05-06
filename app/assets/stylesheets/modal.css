@@ -232,6 +232,30 @@
   padding: 0;
 }
 
+/* MODAL REMOVE ANIMATIONS */
+
+.remove-modal-container {
+  border-radius: 5px;
+  background-color: #36393f;
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.remove-confirmation-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 /* MODAL ANIMATIONS */
 
 @keyframes zoomIn {

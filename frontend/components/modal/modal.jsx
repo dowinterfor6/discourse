@@ -2,6 +2,7 @@ import React from 'react';
 import ServerModalContainer from './server_modal_container';
 import InviteLinkModalContainer from './invite_link_modal_container';
 import {withRouter} from 'react-router-dom';
+import RemoveServerModalContainer from './remove_server_modal_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -27,21 +28,29 @@ class Modal extends React.Component {
           break;
         }
       case 'delete-server-modal':
-
-        break;
+        if (this.props.modal.id) {
+          let server = this.props.servers[this.props.modal.id];
+          component = <RemoveServerModalContainer currentServer={server} type='delete'/>;
+          break;
+        } else {
+          break;
+        }
       case 'leave-server-modal':
       //TODO: UserServer modal stuff
-
-        break;
+        if (this.props.modal.id) {
+          let server = this.props.servers[this.props.modal.id];
+          component = <RemoveServerModalContainer currentServer={server} type='leave' />;
+          break;
+        } else {
+          break;
+        }
       default:
         return null;
     }
 
     return (
       <div className="modal-background" onClick={this.props.closeModal}>
-        {/* <div className="modal-child" onClick={(e) => e.stopPropagation()}> */}
           {component}
-        {/* </div> */}
       </div>
     )
   }

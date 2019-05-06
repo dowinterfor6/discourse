@@ -12,7 +12,7 @@ const serversReducer = (state = {}, action) => {
       return merge({}, newState, {[action.server.id]: action.server});
     case REMOVE_SERVER:
       newState = merge({}, state);
-      delete newState[action.id];
+      delete newState[action.id.id];
       return newState;
     default:
       return state;

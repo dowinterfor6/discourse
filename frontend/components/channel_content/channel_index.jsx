@@ -57,19 +57,24 @@ class ChannelIndex extends React.Component {
     let dropdownComponent = document.getElementsByClassName('channel-title-dropdown')[0];
     dropdownComponent.classList.add('hidden');
     this.setState({ dropdownState: false });
-    let modalIdentifier = 'invite-link-display'
+    let modalIdentifier;
+    if (e.currentTarget.innerHTML.includes('Invite')) {
+      modalIdentifier = 'invite-link-display';
+    } else if (e.currentTarget.innerHTML.includes('Delete')){
+      modalIdentifier = 'delete-server-modal';
+    } else {
+      modalIdentifier = 'leave-server-modal';
+    }
     this.props.openModal(modalIdentifier, this.props.match.params.id); //payload
   }
 
   render() {
     let serverName;
-    let serverInviteLink;
     let currentUserId;
     let currentServerOwnerId;
     if (this.state.currentServer) {
       serverName = this.state.currentServer.name;
       document.title = serverName; //TODO: CHANGE TO CHANNEL NAME LATER
-      serverInviteLink = this.state.currentServer.invite_link;
       currentUserId = this.props.currentUser.id;
       currentServerOwnerId = this.state.currentServer.owner_id;
     }
