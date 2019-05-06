@@ -1,5 +1,5 @@
 import React from 'react';
-import ServerModal from './server_modal';
+import ServerModalContainer from './server_modal_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Modal extends React.Component {
     let component;
     switch (this.props.modal) {
       case 'server-modal':
-        component = <ServerModal />;
+        component = <ServerModalContainer />;
         break;
       default:
         return null;

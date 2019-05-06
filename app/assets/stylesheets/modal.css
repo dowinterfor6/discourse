@@ -73,6 +73,10 @@
   justify-content: space-evenly;
 }
 
+.modal-link-container p {
+  color: grey;
+}
+
 .modal-link-container button {
   width: 80%;
   margin: 0 auto;
@@ -138,6 +142,13 @@
 .modal-form-nav button {
   width: 150px;
   margin: 0;
+}
+
+.modal-form-index form {
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* MODAL JOIN CSS */

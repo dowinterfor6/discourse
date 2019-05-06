@@ -16,9 +16,9 @@ class Api::ServersController < ApplicationController
     # TODO: CHECK IF USEDRSERVER IS REMOVED
     if (@server)
       @server.destroy!
-      user_servers = UserServer.find_by(server_id: params[:id])
+      user_servers = @server.user_servers;
       # user_servers.map (|user_server| user_server.delete!);
-      user_servers.map(&:delete!)
+      user_servers.map(&:destroy!)
       
       # TODO: FIX THIS, does this work this way with actions now?
       # index

@@ -1,12 +1,23 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class ServerModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { active: 'initial' };
+    this.state = { 
+      active: 'initial',
+      data: {
+        server: {
+          name: '' 
+        }
+      }
+    };
     this.handleBack = this.handleBack.bind(this);
     this.handleNavigation = this.handleNavigation.bind(this);
     this.index = this.index.bind(this);
+    this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   nodeGetter(className, animationName) {
@@ -18,7 +29,6 @@ class ServerModal extends React.Component {
   }
 
   componentDidMount() {
-
     this.nodeGetter('modal-form-index', 'zoomIn');
   }
 
@@ -29,9 +39,28 @@ class ServerModal extends React.Component {
 
   handleNavigation(e) {
     let nextModal = e.currentTarget.innerText.split(" ")[0].toLowerCase();
-    // this.nodeGetter(`modal-form-${nextModal}`, 'slideInRight');
-    // this.nodeGetter('modal-form-index', 'slideOutLeft');
     this.setState({active: nextModal});
+  }
+
+  update(property) {
+    return (
+      (e) => {
+        this.setState({
+          data: {
+            server: {
+              [property]: e.currentTarget.value
+            }
+          }
+        });
+      }
+    )
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createServer(this.state.data)
+      .then((res) => this.props.history.push(`${res.server.id}`))
+      .then(() => this.props.closeModal())
   }
 
   index() {
@@ -43,15 +72,13 @@ class ServerModal extends React.Component {
         <div className="modal-form-container">
           <div className="modal-link-container create">
             <h2>Create</h2>
-            <h6>Create a new server and invite your friends, it's free!</h6>
-            <img src="" alt="placeholder" />
+            <p>Create a new server and invite your friends, it's free!</p>
             <button onClick={this.handleNavigation}>Create a server</button>
           </div>
           <label>or</label>
           <div className="modal-link-container join">
             <h2>Join</h2>
-            <h6>Enter an instant invite and join your friend's server</h6>
-            <img src="" alt="placeholder" />
+            <p>Enter an instant invite and join your friend's server</p>
             <button onClick={this.handleNavigation}>Join a server</button>
           </div>
         </div>
@@ -66,19 +93,21 @@ class ServerModal extends React.Component {
         <p>By creating a server, you will have access to free voice and text
           (coming soon, not guaranteed) chat to use amongst your friends.
         </p>
-        <div className="modal-form-input">
-          <label>
-            Server Name
-          </label>
-          <input type="text" placeholder="Enter a server name" />
-        </div>
-        <div className="modal-form-nav">
-          <div className="back-nav" onClick={this.handleBack}>
-            <i className="fas fa-arrow-left"></i>
-            Back
+        <form onSubmit={this.handleSubmit}>
+          <div className="modal-form-input">
+            <label>
+              Server Name
+            </label>
+            <input type="text" onChange={this.update('name')} placeholder="Enter a server name" />
           </div>
-          <button>Create</button>
-        </div>
+          <div className="modal-form-nav">
+            <div className="back-nav" onClick={this.handleBack}>
+              <i className="fas fa-arrow-left"></i>
+              Back
+            </div>
+            <button>Create</button>
+          </div>
+        </form>
       </div>
     )
   }
@@ -91,7 +120,7 @@ class ServerModal extends React.Component {
           will look something like these:
         </p>
         {/* TODO: ADD BETTER SAMPLE */}
-        <h6>discourse_invite/afJeaE3C</h6>
+        <h6>discourse/invite/afJeaE3C</h6>
         <div className="modal-form-input">
           <input type="text" placeholder="Enter an instant invite" />
         </div>
@@ -127,4 +156,4 @@ class ServerModal extends React.Component {
   }
 }
 
-export default ServerModal
+export default withRouter(ServerModal);

@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  window.createServer = serverApiUtil.createServer;
-  window.deleteServer = serverApiUtil.deleteServer;
+  // window.createServer = serverApiUtil.createServer;
+  // window.deleteServer = serverApiUtil.deleteServer;
   window.showServer = serverApiUtil.showServer;
   window.serverIndex = serverApiUtil.serverIndex;
 
