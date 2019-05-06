@@ -127,11 +127,6 @@ class ChannelIndex extends React.Component {
         </section>
 
         <section className="channels">
-          <div className="invite-link">
-            <a>
-              {serverInviteLink}
-            </a>
-          </div>
           {/* TODO: refactor and add channel_list_item component */}
           <ul>
             <li><i className="fas fa-hashtag"></i> assembly-general</li>

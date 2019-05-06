@@ -221,7 +221,6 @@
 }
 
 .invite-text:focus {
-  -webkit-user-select: none;
   outline: none;
 }
 
