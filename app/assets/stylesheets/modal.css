@@ -25,11 +25,20 @@
   height: 400px;
 }
 
+.modal-child-invite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 310px;
+  height: 280px;
+}
+
 .modal-form-index {
   overflow: hidden;
   border-radius: 5px;
-  width: 450px;
-  height: 300px;
+  width: 550px;
+  height: 320px;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -173,6 +182,55 @@
 
 .modal-form-create button:hover {
   background-color: #5f74bb;
+}
+
+/* MODAL INVITE CSS */
+
+.invite-modal-container {
+  border-radius: 5px;
+  background-color: #36393f;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.invite-link-container {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #202225;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invite-text {
+  background: transparent;
+  /* TODO: this forces size of parent to be larger, not the best way */
+  width: 235px;
+  border: none;
+  /* outline: none; */
+  font-size: 11px;
+  padding: 5px;
+  color: #72767d;
+}
+
+.invite-text:focus {
+  -webkit-user-select: none;
+  outline: none;
+}
+
+.invite-link-container button {
+  height: calc(100% - 10px);
+  width: 40px;
+  margin: 5px;
+  text-align: center;
+  padding: 0;
 }
 
 /* MODAL ANIMATIONS */

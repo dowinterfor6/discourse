@@ -153,8 +153,10 @@ class ServerModal extends React.Component {
         break;
     }
     return (
-      <div className="modal-form-index">
-        {component}
+      <div className="modal-child" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-form-index">
+          {component}
+        </div>
       </div>
     )
   }

@@ -1,10 +1,12 @@
 import {connect} from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import Modal from './modal';
+import { fetchServer } from '../../actions/server_actions';
 
 const mapStateToProps = (state) => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    servers: state.entities.servers
   };
 };
 

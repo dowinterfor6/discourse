@@ -12,6 +12,7 @@ class ChannelIndex extends React.Component {
     };
     this.updateStateWithFetch = this.updateStateWithFetch.bind(this);
     this.handleDropdownIconClick = this.handleDropdownIconClick.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   updateStateWithFetch() {
@@ -44,11 +45,20 @@ class ChannelIndex extends React.Component {
       dropdownComponent.classList.add('slideInDown');
       window.setTimeout(() => {
         dropdownComponent.classList.remove('slideInDown');
-      }, 200)
+      }, 200);
     } else {
       dropdownComponent.classList.add('hidden');
     }
     this.setState({dropdownState: dropdownNextState});
+  }
+
+  handleOpenModal(e) {
+    //TODO: match params works here
+    let dropdownComponent = document.getElementsByClassName('channel-title-dropdown')[0];
+    dropdownComponent.classList.add('hidden');
+    this.setState({ dropdownState: false });
+    let modalIdentifier = 'invite-link-display'
+    this.props.openModal(modalIdentifier, this.props.match.params.id); //payload
   }
 
   render() {
@@ -78,21 +88,23 @@ class ChannelIndex extends React.Component {
             </div>
             <div className="dropdown-container">
               <ul className="channel-title-dropdown hidden">
-                <li>
-                  <i class="fas fa-plus"></i>
+                <li onClick={this.handleOpenModal}>
+                  <i className="fas fa-plus"></i>
                   Invite your friends!
                 </li>
+                <li onClick={this.handleOpenModal}>
                 {currentUserId === currentServerOwnerId ? 
-                  <li>
-                    <i className="far fa-trash-alt"></i>
-                    Delete server
-                  </li> 
-                  : 
-                  <li>
-                    <i className="fas fa-door-open"></i>
-                    Leave server
-                  </li>
+                    <>
+                      <i className="far fa-trash-alt"></i>
+                      Delete server
+                    </>
+                    : 
+                    <>
+                      <i className="fas fa-door-open"></i>
+                      Leave server
+                    </>
                 }
+                </li> 
               </ul>
             </div>
           </div>

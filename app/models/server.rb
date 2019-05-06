@@ -24,9 +24,11 @@ class Server < ApplicationRecord
   private
 
   def ensure_invite_link
-    self.invite_link = generate_invite_link
-    while (Server.find_by(invite_link: self.invite_link))
+    unless self.invite_link
       self.invite_link = generate_invite_link
+      while (Server.find_by(invite_link: self.invite_link))
+        self.invite_link = generate_invite_link
+      end
     end
   end
 
