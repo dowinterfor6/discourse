@@ -14,14 +14,9 @@ class serverIndex extends React.Component {
     this.state = {
       servers: {}
     }
-    this.updateServerList = this.updateServerList.bind(this);
   }
 
   componentDidMount() {
-    this.updateServerList();
-  }
-
-  updateServerList() {
     this.props.fetchAllServers().then(
       () => this.setState({
         servers: this.props.servers
@@ -29,11 +24,12 @@ class serverIndex extends React.Component {
     )
   }
 
-  //TODO: Temporary solution until i do channels and new "auth" routes
-  //TODO: THIS DOESN"T WORK LMAO
+  //TODO: THIS WORKS LMAO, how do I compare array equality?
   componentDidUpdate(prevProps) {
-    if (prevProps.servers.length !== this.props.servers.length) {
-      console.log('time to update!');
+    if (Object.keys(prevProps.servers).length !== Object.keys(this.state.servers).length) {
+      this.setState({
+        servers: this.props.servers
+      })
     }
   }
 
@@ -50,7 +46,7 @@ class serverIndex extends React.Component {
             ))}
           </ul>
 
-          <AddServerContainer updateServerList={this.updateServerList}/>
+          <AddServerContainer />
         </aside>
         <Switch>
           <ProtectedRoute exact path="/servers" component={LandingChannelContainer}></ProtectedRoute>

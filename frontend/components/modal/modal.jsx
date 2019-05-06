@@ -13,7 +13,7 @@ class Modal extends React.Component {
     let component;
     switch (this.props.modal) {
       case 'server-modal':
-        component = <ServerModalContainer updateServerList={this.props.updateServerList} />;
+        component = <ServerModalContainer />;
         break;
       default:
         return null;

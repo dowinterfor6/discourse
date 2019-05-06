@@ -15,7 +15,7 @@ class AddServerIcon extends React.Component {
     return (
       <>
         <div className="add-server-icon" onClick={this.handleOpenModal}>+</div>
-        <ModalContainer updateServerList={this.props.updateServerList}/>
+        <ModalContainer />
       </>
     )
   }

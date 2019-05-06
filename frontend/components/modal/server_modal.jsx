@@ -61,9 +61,7 @@ class ServerModal extends React.Component {
     this.props.createServer(this.state.data)
       .then(
         (res) => {
-          console.log(this.props);
           this.props.closeModal();
-          this.props.updateServerList();
           this.props.history.push(`/servers/${res.server.id}`);
         }
       )
