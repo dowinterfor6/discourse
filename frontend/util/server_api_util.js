@@ -33,3 +33,13 @@ export const leaveServer = (serverId) => (
     url: `/api/user_servers/${serverId}`
   })
 )
+
+export const joinServer = (link) => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/user_servers',
+    data: {
+      invite_link: link
+    }
+  })
+)

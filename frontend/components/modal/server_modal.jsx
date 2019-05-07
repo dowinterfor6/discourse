@@ -73,6 +73,11 @@ class ServerModal extends React.Component {
       )
   }
 
+  handleJoinSubmit(e) {
+    e.preventDefault();
+    console.log('join me pls');
+  }
+
   index() {
     let initialTest = this.state.active;
     let landingClass = "modal-form-landing" + (initialTest === 'initial' ? '' : ' slideInLeft');
@@ -129,18 +134,19 @@ class ServerModal extends React.Component {
         <p>Enter an instant invite below to join an existing server. The invite
           will look something like these:
         </p>
-        {/* TODO: ADD BETTER SAMPLE */}
-        <h6>discourse/invite/afJeaE3C</h6>
-        <div className="modal-form-input">
-          <input type="text" placeholder="Enter an instant invite" />
-        </div>
-        <div className="modal-form-nav">
-          <div className="back-nav" onClick={this.handleBack}>
-            <i className="fas fa-arrow-left"></i> 
-            Back
+        <h6>discourse_invite/2o03IhUt26=ZDZVZ1fEcjA</h6>
+        <form onSubmit={this.handleJoinSubmit}>
+          <div className="modal-form-input">
+            <input type="text" placeholder="Enter an instant invite" />
           </div>
-          <button>Join</button>
-        </div>
+          <div className="modal-form-nav">
+            <div className="back-nav" onClick={this.handleBack}>
+              <i className="fas fa-arrow-left"></i> 
+              Back
+            </div>
+            <button>Join</button>
+          </div>
+        </form>
       </div>
     )
   }

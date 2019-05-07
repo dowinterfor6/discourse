@@ -46,4 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // window.leaveServer = serverApiUtil.leaveServer;
   window.leaveServer = leaveServer;
+
+  window.joinServer = serverApiUtil.joinServer;
 });
