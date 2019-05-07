@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import RemoveServerModal from './remove_server_modal';
-import { deleteServer } from '../../actions/server_actions';
+import { deleteServer, leaveServer } from '../../actions/server_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     closeModal: () => dispatch(closeModal()),
-    deleteServer: (id) => dispatch(deleteServer(id))
+    deleteServer: (id) => dispatch(deleteServer(id)),
+    leaveServer: (id) => dispatch(leaveServer(id))
   }
 };
 

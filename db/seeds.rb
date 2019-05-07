@@ -42,3 +42,25 @@ UserServer.create!(user_id: user_5.id,server_id: server_2.id)
 UserServer.create!(user_id: user_5.id,server_id: server_3.id)
 UserServer.create!(user_id: user_1.id,server_id: server_3.id)
 UserServer.create!(user_id: user_3.id,server_id: server_3.id)
+
+# TESTING DELETE
+
+Server.create!(name: "a", owner_id: user_5.id, invite_link: "discourse_invite/2o03IdUt26=ZDZVZ1fEcjA")
+Server.create!(name: "b", owner_id: user_5.id, invite_link: "discourse_invite/2o03IdUt26KdDZVZ1fEcjA")
+Server.create!(name: "c", owner_id: user_5.id, invite_link: "discourse_invite/2o03IdUt2sKZDZVZ1fEcjA")
+Server.create!(name: "d", owner_id: user_5.id, invite_link: "discourse_invite/2o03IdUt26KZDZcZ1fEcjA")
+
+server_4 = Server.find_by(name: "a")
+server_5 = Server.find_by(name: "b")
+server_6 = Server.find_by(name: "c")
+server_7 = Server.find_by(name: "d")
+
+UserServer.create!(user_id: user_1.id,server_id: server_4.id)
+UserServer.create!(user_id: user_1.id,server_id: server_5.id)
+UserServer.create!(user_id: user_1.id,server_id: server_6.id)
+UserServer.create!(user_id: user_1.id,server_id: server_7.id)
+
+UserServer.create!(user_id: user_5.id,server_id: server_4.id)
+UserServer.create!(user_id: user_5.id,server_id: server_5.id)
+UserServer.create!(user_id: user_5.id,server_id: server_6.id)
+UserServer.create!(user_id: user_5.id,server_id: server_7.id)

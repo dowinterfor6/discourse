@@ -5,7 +5,7 @@ import configureStore from './store/store';
 // TESTING STUFF HERE
 import * as sessionApiUtil from './util/session_api_util';
 import * as serverApiUtil from './util/server_api_util';
-import { fetchAllServers, fetchServer, createServer, deleteServer } from './actions/server_actions';
+import { fetchAllServers, fetchServer, createServer, deleteServer, leaveServer } from './actions/server_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore();
@@ -43,4 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchServer = fetchServer;
   window.createServer = createServer;
   window.deleteServer = deleteServer;
+
+  // window.leaveServer = serverApiUtil.leaveServer;
+  window.leaveServer = leaveServer;
 });

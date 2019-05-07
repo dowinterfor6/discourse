@@ -26,3 +26,10 @@ export const deleteServer = (id) => (
     url: `/api/servers/${id}`
   })
 )
+
+export const leaveServer = (serverId) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/user_servers/${serverId}`
+  })
+)

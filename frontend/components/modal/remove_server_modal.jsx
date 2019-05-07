@@ -11,7 +11,15 @@ class RemoveServerModal extends React.Component {
     if (e.currentTarget.innerHTML.split(" ")[0] === 'Delete') {
       this.props.deleteServer(this.props.currentServer.id)
         .then(
-          (res) => {
+          () => {
+            this.props.closeModal();
+            this.props.history.push('/servers');
+          }
+        )
+    } else {
+      this.props.leaveServer(this.props.currentServer.id)
+        .then(
+          () => {
             this.props.closeModal();
             this.props.history.push('/servers');
           }

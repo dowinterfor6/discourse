@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_ALL_SERVERS, RECEIVE_SERVER, REMOVE_SERVER } from '../actions/server_actions';
+import { RECEIVE_ALL_SERVERS, RECEIVE_SERVER, REMOVE_SERVER, LEAVE_SERVER } from '../actions/server_actions';
 
 const serversReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -12,7 +12,11 @@ const serversReducer = (state = {}, action) => {
       return merge({}, newState, {[action.server.id]: action.server});
     case REMOVE_SERVER:
       newState = merge({}, state);
-      delete newState[action.id.id];
+      delete newState[action.id];
+      return newState;
+    case LEAVE_SERVER:
+      newState = merge({}, state);
+      delete newState[action.id];
       return newState;
     default:
       return state;

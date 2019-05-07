@@ -4,6 +4,7 @@ export const RECEIVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS"; //Index, fetch
 export const RECEIVE_SERVER = "RECEIVE_SERVER"; //Show
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 export const REMOVE_SERVER = "REMOVE_SERVER";
+export const LEAVE_SERVER = "LEAVE_SERVER";
 
 //Need current user info?
 const receiveAllServers = (servers) => ({
@@ -18,8 +19,14 @@ const receiveServer = (server) => ({
 });
 
 //TODO: Passing in ID (to get from match.params.id)
-const removeServer = (id) => ({
+const removeServer = ({id}) => ({
   type: REMOVE_SERVER,
+  id
+});
+
+//TODO: MIGHT NOT WORK
+const leaveServerAction = ({id}) => ({
+  type: LEAVE_SERVER,
   id
 })
 
@@ -58,12 +65,18 @@ export const createServer = (newServer) => (dispatch) => (
     )
 )
 
-
 //TODO: returns information on action creator
 export const deleteServer = (id) => (dispatch) => (
   APIUtil.deleteServer(id)
     .then(
       (server) => dispatch(removeServer(server)),
       (errors) => dispatch(receiveErrors(errors))
+    )
+)
+
+export const leaveServer = (id) => (dispatch) => (
+  APIUtil.leaveServer(id)
+    .then(
+      (server) => dispatch(leaveServerAction(server))
     )
 )
