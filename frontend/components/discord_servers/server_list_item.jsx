@@ -13,6 +13,11 @@ class ServerListItem extends React.Component {
   // and not /servers/:id, need to use channelindex to check.
   handleServerNavigation(e) {
     this.props.history.push(`/servers/${this.props.server.id}`);
+    let listElement = document.getElementsByClassName('nav-in-focus')[0];
+    if (listElement) {
+      listElement.classList.remove('nav-in-focus');
+    }
+    e.currentTarget.classList.add('nav-in-focus');
   }
   
   render() {  

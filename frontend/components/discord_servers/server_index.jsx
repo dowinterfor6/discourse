@@ -14,6 +14,7 @@ class serverIndex extends React.Component {
     this.state = {
       servers: {}
     }
+    this.handleActivityNav = this.handleActivityNav.bind(this);
   }
 
   componentDidMount() {
@@ -33,12 +34,25 @@ class serverIndex extends React.Component {
     }
   }
 
+  handleActivityNav(e) {
+    let listElement = document.getElementsByClassName('nav-in-focus')[0];
+    if (listElement) {
+      listElement.classList.remove('nav-in-focus');
+    }
+    e.currentTarget.classList.add('nav-in-focus');
+    this.props.history.push('/servers/');
+  }
+
   render() {
     let serverIds = Object.keys(this.state.servers);
     return (
       <div className="discord-main">
         <aside className="discord-nav-bar" scrolling="no">
-          <Link to="/servers"><div className="home-icon"><i className="fas fa-home fa-2x"></i></div></Link>
+          {/* <Link to="/servers"> */}
+            <div className="home-icon" onClick={this.handleActivityNav}>
+              <i className="fas fa-home fa-2x"></i>
+            </div>
+          {/* </Link> */}
           <div className="home-icon-divider"></div>
           <ul>
             {serverIds.map((id) => (
