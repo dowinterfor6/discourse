@@ -8,12 +8,7 @@ class AddServerIcon extends React.Component {
   }
 
   handleOpenModal(e) {
-    let listElement = document.getElementsByClassName('nav-in-focus')[0];
-    if (listElement) {
-      listElement.classList.remove('nav-in-focus');
-    }
     this.props.openModal('server-modal');
-    e.currentTarget.classList.add('nav-in-focus');
   }
 
   render() {

@@ -73,12 +73,6 @@
   background-color: var(--primary-hover-color) !important;
 }
 
-/* TODO: ALSO NOT IDEAL */
-.add-server-icon.nav-in-focus {
-  color: var(--font-primary);
-  background-color: var(--secondary-hover-color) !important;
-}
-
 .home-icon,
 .add-server-icon {
   min-height: 50px;
@@ -107,6 +101,7 @@
   margin: 0 auto 10px auto;
   font-size: 3em;
   color: var(--secondary-hover-color);
+  background-color: #2f3136;
 }
 
 .add-server-icon:hover {
