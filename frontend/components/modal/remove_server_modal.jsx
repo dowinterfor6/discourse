@@ -34,10 +34,10 @@ class RemoveServerModal extends React.Component {
     return (
       <div className="remove-modal-container" onClick={(e) => e.stopPropagation()}>
         <div className="remove-confirmation-container">
-          <h1>ART THOU SURETH TO {this.props.type.toUpperCase()}TH {this.props.currentServer.name}</h1>
+          <h2>{this.props.type.toUpperCase()} "{this.props.currentServer.name}"</h2>
           <div className="remove-confirmation-warning">
-            Are you sure you want to {this.props.type.toLowerCase()} 
-            {this.props.currentServer.name}? This action cannot be undone.
+            Are you sure you want to {this.props.type.toLowerCase()} "
+            {this.props.currentServer.name}"? This action cannot be undone.
           </div>
           <div className="remove-container-nav">
             <a onClick={() => this.props.closeModal()}>Cancel</a>
