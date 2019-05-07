@@ -6,7 +6,6 @@ import ChannelIndexContainer from '../channel_content/channel_index_container';
 import {withRouter} from 'react-router-dom';
 import ServerListItem from './server_list_item';
 import AddServerContainer from './add_server_container';
-import AddServerIcon from './add_server_icon';
 
 class serverIndex extends React.Component {
   constructor(props) {
@@ -17,6 +16,7 @@ class serverIndex extends React.Component {
     this.handleActivityNav = this.handleActivityNav.bind(this);
   }
 
+  //TODO: Sort server list by time UserServer was added?
   componentDidMount() {
     this.props.fetchAllServers().then(
       () => {

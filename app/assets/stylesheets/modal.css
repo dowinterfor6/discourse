@@ -46,7 +46,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background: url('https://ak1.picdn.net/shutterstock/videos/13972121/thumb/1.jpg');
+  background-position: bottom;
   text-align: center;
 }
 
@@ -73,7 +74,7 @@
 
 .modal-link-container { 
   border-radius: 5px;
-  border: 1px solid grey;
+  border: 1px solid #e8e8e8;
   color: black;
   height: calc(100% - 20px);
   width: 40%;
@@ -82,6 +83,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  background: rgb(255,255,255,0.7);
 }
 
 .modal-link-container p {
@@ -213,6 +215,11 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+}
+
+.invite-modal-container h2 {
+  width: 80%;
+  font-size: 23px;
 }
 
 .invite-link-container {

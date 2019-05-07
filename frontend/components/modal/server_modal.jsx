@@ -171,7 +171,7 @@ class ServerModal extends React.Component {
       <div className="modal-form-join slideInRight">
         <h1>Join a server</h1>
         <p>Enter an instant invite below to join an existing server. The invite
-          will look something like these:
+          will look something like this:
         </p>
         <h6>discourse_invite/2o03IhUt26=ZDZVZ1fEcjA</h6>
         <form onSubmit={this.handleJoinSubmit}>
