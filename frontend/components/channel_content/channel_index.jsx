@@ -16,20 +16,38 @@ class ChannelIndex extends React.Component {
   }
 
   updateStateWithFetch() {
-    this.props.fetchAllServers()
-      .then(
-        (res) => this.setState({ servers: res.servers })
-      ).then(
-        () => this.setState({ currentServer: this.state.servers[this.props.match.params.id] })
-      )
+    return (
+      this.props.fetchAllServers()
+        .then(
+          (res) => this.setState({ servers: res.servers })
+        ).then(
+          () => this.setState({ currentServer: this.state.servers[this.props.match.params.id] })
+        )
+    );
   }
 
   componentDidMount() {
-    this.updateStateWithFetch();
+    this.updateStateWithFetch()
+      .then(
+        () => {
+          //TODO: this is actually dumbaf please fix this asap
+          window.setTimeout(() => {
+            if (!document.getElementsByClassName('nav-in-focus')[0]) {
+              let elementPreload = document.getElementsByClassName(`${this.props.match.params.id}`);
+              console.log(elementPreload[0]);
+              elementPreload[0].classList.add('nav-in-focus');
+            }
+          }, 200);
+        }
+      )
   }
   
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
+      let prevElement = document.getElementsByClassName(prevProps.match.params.id)[0];
+      prevElement.classList.remove('nav-in-focus');
+      let elementPreload = document.getElementsByClassName(this.props.match.params.id)[0];
+      elementPreload.classList.add('nav-in-focus');
       let dropdownComponent = document.getElementsByClassName('channel-title-dropdown')[0];
       dropdownComponent.classList.add('hidden');
       this.setState({dropdownState: false});

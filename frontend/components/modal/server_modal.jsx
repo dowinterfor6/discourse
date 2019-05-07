@@ -63,18 +63,12 @@ class ServerModal extends React.Component {
         (res) => {
           this.props.closeModal();
           this.props.history.push(`/servers/${res.server.id}`);
-        }
-      ).then(
-        // TODO: what's a better way to do this?
-        () => {
           let listElement = document.getElementsByClassName('nav-in-focus')[0];
           if (listElement) {
             listElement.classList.remove('nav-in-focus');
           }
-          let allServerList = document.getElementsByClassName('discord-nav-bar')[0];
-          let unorderedList = allServerList.childNodes[2];
-          let lastAdded = unorderedList.childNodes[Array.from(unorderedList.childNodes).length - 1];
-          lastAdded.classList.add('nav-in-focus');
+          let newElement = document.getElementsByClassName(res.server.id)[0];
+          newElement.classList.add('nav-in-focus');
         }
       )
   }

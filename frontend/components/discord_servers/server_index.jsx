@@ -19,9 +19,11 @@ class serverIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllServers().then(
-      () => this.setState({
-        servers: this.props.servers
-      })
+      () => {
+        this.setState({
+          servers: this.props.servers
+        });
+      }
     )
   }
 

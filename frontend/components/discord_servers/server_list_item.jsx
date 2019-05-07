@@ -22,7 +22,7 @@ class ServerListItem extends React.Component {
   
   render() {  
   return (
-    <li onClick={this.handleServerNavigation}>
+    <li onClick={this.handleServerNavigation} className={this.props.server.id}>
       {this.props.server.name[0]}
     </li>
   )}
