@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserInfoBar from './user_info_bar';
+import ChatRoom from '../cable_chat/chat_room';
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -46,11 +47,6 @@ class ChannelIndex extends React.Component {
   
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      //TODO: I dont need this?!
-      // let prevElement = document.getElementsByClassName(prevProps.match.params.id)[0];
-      // prevElement.classList.remove('nav-in-focus');
-      // let elementPreload = document.getElementsByClassName(this.props.match.params.id)[0];
-      // elementPreload.classList.add('nav-in-focus');
       let dropdownComponent = document.getElementsByClassName('channel-title-dropdown')[0];
       dropdownComponent.classList.add('hidden');
       this.setState({dropdownState: false});
@@ -170,6 +166,7 @@ class ChannelIndex extends React.Component {
         
         <section className="channel-content">
           {/* TODO: do dis */}
+          <ChatRoom />
           This is channels content speaking
         </section>
       </div>

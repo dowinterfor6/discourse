@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :user_servers, only: [:destroy, :create]
   end
 
+  mount ActionCable.server, at: '/cable'
+
   root "static_pages#root"
 end
