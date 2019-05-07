@@ -258,6 +258,7 @@
 
 .remove-confirmation-warning {
   border-radius: 5px;
+  padding: 0 5px;
   height: 50px;
   background-color: #e19517;
   display: flex;

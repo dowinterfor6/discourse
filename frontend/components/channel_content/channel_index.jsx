@@ -31,11 +31,13 @@ class ChannelIndex extends React.Component {
       .then(
         () => {
           //TODO: this is actually dumbaf please fix this asap
+          //I dont know when another component has mounted
+          //use global state?
           window.setTimeout(() => {
             if (!document.getElementsByClassName('nav-in-focus')[0]) {
-              let elementPreload = document.getElementsByClassName(`${this.props.match.params.id}`);
-              console.log(elementPreload[0]);
-              elementPreload[0].classList.add('nav-in-focus');
+              let elementPreload;
+              elementPreload = document.getElementsByClassName(`${this.props.match.params.id}`)[0];
+              elementPreload.classList.add('nav-in-focus');
             }
           }, 200);
         }
