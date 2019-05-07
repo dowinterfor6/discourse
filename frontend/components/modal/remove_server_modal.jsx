@@ -25,6 +25,9 @@ class RemoveServerModal extends React.Component {
           }
         )
     }
+    let elementPreload;
+    elementPreload = document.getElementsByClassName('home-icon')[0];
+    elementPreload.classList.add('nav-in-focus');
   }
   
   render() {

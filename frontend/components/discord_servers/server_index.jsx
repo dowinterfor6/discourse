@@ -26,7 +26,7 @@ class serverIndex extends React.Component {
       }
     ).then(
       () => {
-        if (this.props.location.pathname === "/servers/") {
+        if (this.props.location.pathname === "/servers") {
           let elementPreload;
           elementPreload = document.getElementsByClassName('home-icon')[0];
           elementPreload.classList.add('nav-in-focus');
@@ -40,7 +40,7 @@ class serverIndex extends React.Component {
     if (Object.keys(prevProps.servers).length !== Object.keys(this.state.servers).length) {
       this.setState({
         servers: this.props.servers
-      })
+      });
     }
   }
 
@@ -50,7 +50,7 @@ class serverIndex extends React.Component {
       listElement.classList.remove('nav-in-focus');
     }
     e.currentTarget.classList.add('nav-in-focus');
-    this.props.history.push('/servers/');
+    this.props.history.push('/servers');
   }
 
   render() {

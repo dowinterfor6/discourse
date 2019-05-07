@@ -97,6 +97,8 @@ class ServerModal extends React.Component {
       );
   }
 
+  //TODO: SOMETIMES NEED TO LEAVE SERVER TWICE
+
   afterSubmitActions(res) {
     this.props.closeModal();
     this.props.history.push(`/servers/${res.server.id}`);
