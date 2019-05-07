@@ -65,6 +65,7 @@ class ServerModal extends React.Component {
           this.props.history.push(`/servers/${res.server.id}`);
         }
       ).then(
+        // TODO: what's a better way to do this?
         () => {
           let listElement = document.getElementsByClassName('nav-in-focus')[0];
           if (listElement) {
