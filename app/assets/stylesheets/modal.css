@@ -1,6 +1,8 @@
 :root {
   --modal-header-color: #7289da;
   --modal-join-color: #3ca374;
+  --error-color: #d84545;
+  --modal-font-color: #99aab5;
 }
 
 .modal-background {
@@ -107,8 +109,20 @@
   background-color: #36956a;
 }
 
+.create h2 {
+  color: #5f74bb;
+}
+
 .create button:hover {
   background-color: #5f74bb;
+}
+
+.create p,
+.join p,
+.modal-form-create p,
+.modal-form-join p,
+.modal-form-input label {
+  color: var(--modal-font-color);
 }
 
 .modal-form-landing,
@@ -136,7 +150,7 @@
 
 .modal-form-input {
   display: flex;
-  max-height: 110px;
+  height: 55px;
   width: 80%;
   margin: auto;
   flex-direction: column;
@@ -302,7 +316,7 @@
 
 .modal-error-message li {
   border-radius: 0;
-  color: black;
+  color: var(--error-color);
   background-color: transparent;
   width: 100%;
   margin: 0;

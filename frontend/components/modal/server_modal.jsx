@@ -144,11 +144,13 @@ class ServerModal extends React.Component {
               <li key={idx}>{err}</li>
             ))}
           </div>
-          <div className="modal-form-input">
-            <label>
-              Server Name
-            </label>
-            <input type="text" onChange={this.update('name')} placeholder="Enter a server name" />
+          <div>
+            <div className="modal-form-input">
+              <label>
+                Server Name
+              </label>
+              <input type="text" onChange={this.update('name')} placeholder="Enter a server name" />
+            </div>
           </div>
           <div className="modal-form-nav">
             <div className="back-nav" onClick={this.handleBack}>
