@@ -136,8 +136,10 @@
 
 .modal-form-input {
   display: flex;
+  max-height: 110px;
   width: 80%;
   margin: auto;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -290,6 +292,28 @@
 .remove-container-nav a:hover {
   text-decoration: underline;
   color: white;
+}
+
+/* ERROR MESSAGE */
+
+.modal-error-message {
+  min-height: 2em;
+}
+
+.modal-error-message li {
+  border-radius: 0;
+  color: black;
+  background-color: transparent;
+  width: 100%;
+  margin: 0;
+  height: auto;
+  cursor: auto;
+}
+
+.modal-error-message li:hover {
+  border-radius: 0;
+  background-color: transparent;
+
 }
 
 /* MODAL ANIMATIONS */

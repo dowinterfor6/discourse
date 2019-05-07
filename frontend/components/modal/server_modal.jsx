@@ -8,9 +8,10 @@ class ServerModal extends React.Component {
       active: 'initial',
       data: {
         server: {
-          name: '' 
+          name: ''
         }
-      }
+      },
+      link: ''
     };
     this.handleBack = this.handleBack.bind(this);
     this.handleNavigation = this.handleNavigation.bind(this);
@@ -18,6 +19,9 @@ class ServerModal extends React.Component {
     this.create = this.create.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleJoinSubmit = this.handleJoinSubmit.bind(this);
+    this.afterSubmitActions = this.afterSubmitActions.bind(this);
+    this.removeErrorsOnNavigate = this.removeErrorsOnNavigate.bind(this);
   }
 
   nodeGetter(className, animationName) {
@@ -32,9 +36,14 @@ class ServerModal extends React.Component {
     this.nodeGetter('modal-form-index', 'zoomIn');
   }
 
+  removeErrorsOnNavigate() {
+    this.props.deleteServerErrors();
+  }
+
   handleBack(e) {
     this.nodeGetter(`modal-form-${this.state.active}`, 'slideOutRight');
     this.setState({ active: 'index' });
+    this.removeErrorsOnNavigate();
   }
 
   handleNavigation(e) {
@@ -43,39 +52,60 @@ class ServerModal extends React.Component {
   }
 
   update(property) {
-    return (
-      (e) => {
-        this.setState({
-          data: {
-            server: {
-              [property]: e.currentTarget.value
+    if (property === 'name') {
+      return (
+        (e) => {
+          this.setState({
+            data: {
+              server: {
+                [property]: e.currentTarget.value
+              }
             }
-          }
-        });
-      }
-    )
-  }
+          });
+        }
+      )
+    } else {
+      return (
+        (e) => {
+          this.setState({
+            link: e.currentTarget.value
+          })
+        }
+      )
+    } 
+  };
 
   handleSubmit(e) {
     e.preventDefault();
+    this.removeErrorsOnNavigate();
     this.props.createServer(this.state.data)
       .then(
         (res) => {
-          this.props.closeModal();
-          this.props.history.push(`/servers/${res.server.id}`);
-          let listElement = document.getElementsByClassName('nav-in-focus')[0];
-          if (listElement) {
-            listElement.classList.remove('nav-in-focus');
-          }
-          let newElement = document.getElementsByClassName(res.server.id)[0];
-          newElement.classList.add('nav-in-focus');
+          this.afterSubmitActions(res);
         }
-      )
+      );
   }
 
   handleJoinSubmit(e) {
     e.preventDefault();
-    console.log('join me pls');
+    this.removeErrorsOnNavigate();
+    this.props.joinServer(this.state.link)
+      .then(
+        (res) => {
+          this.afterSubmitActions(res);
+        }
+      );
+  }
+
+  afterSubmitActions(res) {
+    this.props.closeModal();
+    this.props.history.push(`/servers/${res.server.id}`);
+    let listElement = document.getElementsByClassName('nav-in-focus')[0];
+    if (listElement) {
+      listElement.classList.remove('nav-in-focus');
+    }
+    let newElement = document.getElementsByClassName(res.server.id)[0];
+    newElement.classList.add('nav-in-focus');
   }
 
   index() {
@@ -109,6 +139,11 @@ class ServerModal extends React.Component {
           (coming soon, not guaranteed) chat to use amongst your friends.
         </p>
         <form onSubmit={this.handleSubmit}>
+          <div className="modal-error-message">
+            {this.props.errors.map((err, idx) => (
+              <li key={idx}>{err}</li>
+            ))}
+          </div>
           <div className="modal-form-input">
             <label>
               Server Name
@@ -137,7 +172,12 @@ class ServerModal extends React.Component {
         <h6>discourse_invite/2o03IhUt26=ZDZVZ1fEcjA</h6>
         <form onSubmit={this.handleJoinSubmit}>
           <div className="modal-form-input">
-            <input type="text" placeholder="Enter an instant invite" />
+            <div className="modal-error-message">
+              {this.props.errors.map((err, idx) => (
+                <li key={idx}>{err}</li>
+              ))}
+            </div>
+            <input type="text" onChange={this.update('link')} placeholder="Enter an instant invite" />
           </div>
           <div className="modal-form-nav">
             <div className="back-nav" onClick={this.handleBack}>

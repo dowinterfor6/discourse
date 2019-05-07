@@ -67,10 +67,10 @@
   background-color: var(--primary-hover-color);
 }
 
-/* TODO: NOT IDEAL */
-.nav-in-focus {
-  border-radius: 15px !important;
-  background-color: var(--primary-hover-color) !important;
+.discord-nav-bar li.nav-in-focus,
+.home-icon.nav-in-focus {
+  border-radius: 15px;
+  background-color: var(--primary-hover-color);
 }
 
 .home-icon,

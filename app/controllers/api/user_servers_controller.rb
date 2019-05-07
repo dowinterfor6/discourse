@@ -13,12 +13,16 @@ class Api::UserServersController < ApplicationController
   def create
     @server = Server.find_by(invite_link: params[:invite_link])
     user_id = current_user.id
-    @user_server = UserServer.new(user_id: user_id, server_id: @server.id)
-
-    if @user_server.save
-      render 'api/servers/show'
+    unless @server
+      render json: ['Cannot find server!'], status: 418
     else
-      render json: @user_server.errors.full_messages, status: 422 #TODO: check status
+      @user_server = UserServer.new(user_id: user_id, server_id: @server.id)
+
+      if @user_server.save
+        render 'api/servers/show'
+      else
+        render json: ['Cannot join server!'], status: 418
+      end
     end
   end
 

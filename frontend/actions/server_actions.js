@@ -44,7 +44,7 @@ export const fetchAllServers = () => (dispatch) => (
   APIUtil.serverIndex()
     .then(
       (servers) => dispatch(receiveAllServers(servers)),
-      (errors) => dispatch(receiveErrors(errors))
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 );
 
@@ -53,7 +53,7 @@ export const fetchServer = (id) => (dispatch) => (
   APIUtil.showServer(id)
     .then(
       (server) => dispatch(receiveServer(server)),
-      (errors) => dispatch(receiveErrors(errors))
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 );
 
@@ -70,7 +70,7 @@ export const deleteServer = (id) => (dispatch) => (
   APIUtil.deleteServer(id)
     .then(
       (server) => dispatch(removeServer(server)),
-      (errors) => dispatch(receiveErrors(errors))
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 )
 
@@ -78,5 +78,14 @@ export const leaveServer = (id) => (dispatch) => (
   APIUtil.leaveServer(id)
     .then(
       (server) => dispatch(leaveServerAction(server))
+    )
+)
+
+//TODO: CHECK ERRORS
+export const joinServer = (link) => (dispatch) => (
+  APIUtil.joinServer(link)
+    .then(
+      (server) => dispatch(receiveServer(server)),
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 )

@@ -24,6 +24,14 @@ class serverIndex extends React.Component {
           servers: this.props.servers
         });
       }
+    ).then(
+      () => {
+        if (this.props.location.pathname === "/servers/") {
+          let elementPreload;
+          elementPreload = document.getElementsByClassName('home-icon')[0];
+          elementPreload.classList.add('nav-in-focus');
+        }
+      }
     )
   }
 
