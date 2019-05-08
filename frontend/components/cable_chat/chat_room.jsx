@@ -54,7 +54,7 @@ class ChatRoom extends React.Component {
             </div>
           </div>
           <div className="message-content">
-            {message.body}
+            <pre>{message.body}</pre>
           </div>
           <div ref={this.bottom} />
         </li>

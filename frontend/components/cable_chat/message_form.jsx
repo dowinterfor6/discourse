@@ -7,7 +7,8 @@ class MessageForm extends React.Component {
       body: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    //TODO: how do i get sender in here? current user?
+    this.handleEnter = this.handleEnter.bind(this);
+    this.callSpeak = this.callSpeak.bind(this);
   }
 
   update(field) {
@@ -18,10 +19,12 @@ class MessageForm extends React.Component {
   }
 
   resizeTextarea(e) {
-    e.currentTarget.style.height = "1px";
-    e.currentTarget.style.height = (e.currentTarget.scrollHeight) + "px";
+    let currentTarget = e.currentTarget;
+    currentTarget.style.height = "1px";
+    currentTarget.style.height = (currentTarget.scrollHeight) + "px";
     let container = document.getElementsByClassName('message-form-container')[0];
-    container.style.height = (65 + e.currentTarget.scrollHeight) + "px";
+    container.style.height = "1px";
+    container.style.height = (65 + currentTarget.scrollHeight) + "px";
   }
 
   resetTextarea() {
@@ -35,6 +38,10 @@ class MessageForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.callSpeak();
+  }
+
+  callSpeak() {
     if (this.state.body) {
       let moment = require('moment');
       let date = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -43,8 +50,15 @@ class MessageForm extends React.Component {
         sender: this.props.currentUser.username,
         timestamp: date
       });
-      this.setState({body: ""});
+      this.setState({ body: "" });
       this.resetTextarea();
+    }
+  }
+
+  handleEnter(evt) {
+    if (evt.which === 13 && !evt.shiftKey) {
+      evt.preventDefault();
+      this.callSpeak();
     }
   }
 
@@ -53,17 +67,12 @@ class MessageForm extends React.Component {
       <div className="message-form-container">
         <div className="message-form-divider">
           <form className="message-form" onSubmit={this.handleSubmit}>
-            {/* <input 
-              type="textarea" 
-              value={this.state.body} 
-              onChange={this.update('body')}
-              placeholder="Message {channel}"
-            /> */}
             <textarea 
               className="message-form-textarea"
               cols="30" 
               rows="1" 
               value={this.state.body}
+              onKeyPress={this.handleEnter}
               onChange={this.update('body')}
               placeholder="Message {channel}"
               >
