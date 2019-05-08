@@ -64,3 +64,5 @@ UserServer.create!(user_id: user_5.id,server_id: server_4.id)
 UserServer.create!(user_id: user_5.id,server_id: server_5.id)
 UserServer.create!(user_id: user_5.id,server_id: server_6.id)
 UserServer.create!(user_id: user_5.id,server_id: server_7.id)
+
+Message.destroy_all

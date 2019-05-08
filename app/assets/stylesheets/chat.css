@@ -1,0 +1,116 @@
+:root {
+  --app-tertiary-background-color: #202225;
+}
+
+/* Channel content chat styling */
+
+.channel-content {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items:  */
+  max-height: 100%;
+}
+
+.chatroom-container {
+  /* TODO: THIS MIGHT NOW WORK  */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message-list {
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+  padding: 0 25px;
+  width: calc(100% - 50px);
+}
+
+.message-list li {
+  border-bottom: 1px solid #42454a;
+  padding: 20px 0;
+  cursor: auto;
+  line-height: 2em;
+  max-width: calc(100vw - 360px);
+}
+
+.message-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 10px; */
+  height: 100px;
+  width: 100%;
+}
+
+/* width */
+.message-list::-webkit-scrollbar {
+  position: relative;
+  width: 10px;
+  background: transparent;
+}
+
+/* Track */
+.message-list::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Handle */
+.message-list::-webkit-scrollbar-thumb {
+  background: var(--app-tertiary-background-color); 
+}
+
+.message-form-divider {
+  border-top: 1px solid #42454a;
+  width: calc(100% - 50px);
+  height: calc(100% - 1px);
+  display: flex;
+  align-items: center;
+}
+
+.message-form {
+  border-radius: 5px;
+  background-color: #484b52;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-form input {
+  background: transparent;
+  margin-left: 10px;
+  height: 100%;
+  outline: none;
+  border: none;
+  color: #c8c9cb;
+}
+
+.message-form button {
+  width: 100%;
+}
+
+.message-form button:hover {
+  background-color: #5f74bb;
+}
+
+.message-sender {
+  font-size: 20px;
+  display: flex;
+  align-items: baseline;
+}
+
+.message-sender-time {
+  color: #5d5e61;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.message-content {
+  font-size: 18px;
+  overflow-wrap: break-word;
+}

@@ -9,7 +9,6 @@ class ChatRoom extends React.Component {
       messages: []
     };
     this.bottom = React.createRef();
-    console.log(this.bottom);
   }
 
   componentDidMount() {
@@ -23,7 +22,8 @@ class ChatRoom extends React.Component {
             messages: this.state.messages.concat(
               {
                 body: data.message,
-                sender: data.sender
+                sender: data.sender,
+                timestamp: data.timestamp
               }
             )
           });
@@ -45,8 +45,17 @@ class ChatRoom extends React.Component {
     let messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>
-          {message.sender} said:
-          {message.body}
+          <div className="message-sender">
+            <div className="message-sender-name">
+              {message.sender}
+            </div>
+            <div className="message-sender-time">
+              {message.timestamp}
+            </div>
+          </div>
+          <div className="message-content">
+            {message.body}
+          </div>
           <div ref={this.bottom} />
         </li>
       )
@@ -54,8 +63,7 @@ class ChatRoom extends React.Component {
     
     return (
       <div className="chatroom-container">
-        <div>ChatRoom</div>
-        <ul className="message-list">
+        <ul className="message-list" scrolling='no'>
           {messageList}
         </ul>
         <MessageFormContainer />

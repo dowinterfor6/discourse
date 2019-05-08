@@ -18,25 +18,35 @@ class MessageForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    App.cable.subscriptions.subscriptions[0].speak({
-      message: this.state.body,
-      sender: this.props.currentUser.username
-    });
-    this.setState({body: ""});
+    if (this.state.body) {
+      // let date = new Date;
+      // let date = Date.now().toDateString().split(" ");
+      // date = (date.slice(0, 3) + date.slice(4)).join(" ");
+      let moment = require('moment');
+      let date = moment().format('MMMM Do YYYY, h:mm:ss a');
+      App.cable.subscriptions.subscriptions[0].speak({
+        message: this.state.body,
+        sender: this.props.currentUser.username,
+        timestamp: date
+      });
+      this.setState({body: ""});
+    }
   }
 
   render() {
     return (
       <div className="message-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <input 
-            type="text" 
-            value={this.state.body} 
-            onChange={this.update('body')}
-            placeholder="Type message here"
-          />
-          <button>Send</button>
-        </form>
+        <div className="message-form-divider">
+          <form className="message-form" onSubmit={this.handleSubmit}>
+            <input 
+              type="text" 
+              value={this.state.body} 
+              onChange={this.update('body')}
+              placeholder="Message {channel}"
+            />
+            <button>Send</button>
+          </form>
+        </div>
       </div>
     )
   }

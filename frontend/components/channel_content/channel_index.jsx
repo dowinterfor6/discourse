@@ -165,9 +165,7 @@ class ChannelIndex extends React.Component {
         </section>
         
         <section className="channel-content">
-          {/* TODO: do dis */}
           <ChatRoom />
-          This is channels content speaking
         </section>
       </div>
     )
