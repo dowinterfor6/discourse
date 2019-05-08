@@ -28,6 +28,7 @@
 
 # Ignore project webpack and other things
 /bundle.js*
+bundle.js
 /bundle.js.map
 /.DS_Store
 /npm-debug.log
