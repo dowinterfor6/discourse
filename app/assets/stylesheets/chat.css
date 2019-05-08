@@ -139,3 +139,9 @@
   font-size: 18px;
   overflow-wrap: break-word;
 }
+
+.message-content pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
