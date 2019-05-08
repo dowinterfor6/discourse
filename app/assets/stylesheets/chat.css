@@ -41,9 +41,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 10px; */
-  height: 100px;
-  width: 100%;
+  min-height: 100px;
+  max-height: 315px;
 }
 
 /* width */
@@ -55,6 +54,7 @@
 
 /* Track */
 .message-list::-webkit-scrollbar-track {
+  cursor: pointer;
   background: transparent; 
 }
 
@@ -81,17 +81,42 @@
   align-items: center;
 }
 
-.message-form input {
+.message-form textarea {
   background: transparent;
-  margin-left: 10px;
-  height: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  min-height: 100%;
+  max-height: 250px;
   outline: none;
   border: none;
   color: #c8c9cb;
+
+  max-width: 100%;
+  overflow: auto;
+  overflow-wrap: break-word;
+  resize: none;
+}
+
+/* width */
+.message-form textarea::-webkit-scrollbar {
+  position: relative;
+  width: 10px;
+  background: transparent;
+}
+
+/* Track */
+.message-form textarea::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Handle */
+.message-form textarea::-webkit-scrollbar-thumb {
+  background: var(--app-tertiary-background-color); 
 }
 
 .message-form button {
   width: 100%;
+  margin: 0;
 }
 
 .message-form button:hover {
