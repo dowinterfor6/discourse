@@ -7,9 +7,11 @@ class ActivityDisplay extends React.Component {
       <section className="activity-display-container" scrolling="no">
         <ul className="activities-display-list">
           <li>
-            <div className="activity-photo-content">
-            
-            </div>
+            <img 
+              src="https://cdn.discordapp.com/attachments/560127966688837672/576154925030178832/FO76.png" 
+              alt="Fallout 76" 
+              className="activity-photo-content"
+            />
             <div className="activity-content-text">
               In Fallout 76, the first nuke is launched and it has a huge effect:
               deathclaws get wings, the world is thrown into a nuclear winter,
@@ -23,7 +25,7 @@ class ActivityDisplay extends React.Component {
           <li>
             <img 
               className="activity-photo-content" 
-              src="https://cdn.wccftech.com/wp-content/uploads/2016/09/Half-Life-3.jpg" 
+              src="https://cdn.discordapp.com/attachments/560127966688837672/576154925235568640/HL3.png" 
               alt="Halflife 3" 
             />
             <div className="activity-content-text">
@@ -34,9 +36,11 @@ class ActivityDisplay extends React.Component {
             </div>
           </li>
           <li>
-            <div className="activity-photo-content">
-
-            </div>
+            <img
+              className="activity-photo-content"
+              src="https://cdn.discordapp.com/attachments/560127966688837672/576154933028585515/MHW.png"
+              alt="Monster Hunter World"
+            />
             <div className="activity-content-text">
               Monster Hunter Go, the long awaited collaboration between Capcom and Niantic,
               introducing the beasts of the Monster Hunter series into the world of AR (augmented
@@ -46,9 +50,11 @@ class ActivityDisplay extends React.Component {
             </div>
           </li>
           <li>
-            <div className="activity-photo-content">
-            
-            </div>
+            <img
+              className="activity-photo-content"
+              src="https://cdn.discordapp.com/attachments/560127966688837672/576154929182277655/MGS-kojima.png"
+              alt="Kojima Productions"
+            />
             <div className="activity-content-text">
               Metal Gear Solid: Kojima Returns is the latest installment in the MGS series. 
               After being ousted from Konami productions, Hideo Kojima became an icon of hope
@@ -57,9 +63,11 @@ class ActivityDisplay extends React.Component {
             </div>
           </li>
           <li>
-            <div className="activity-photo-content">
-            
-            </div>
+            <img
+              className="activity-photo-content"
+              src="https://cdn.discordapp.com/attachments/560127966688837672/576154932323811339/LOL.png"
+              alt="League of Legends"
+            />
             <div className="activity-content-text">
               Following the success of the game for over a decade, Riot Games have decided 
               to live up to the plural in their company name, and have released the sequel;

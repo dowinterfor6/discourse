@@ -27,7 +27,11 @@ class LandingChannel extends React.Component {
 
         <section className="title">
           <form className="search-container">
-            <input type="text" placeholder="Find or start a conversation"/>
+            <input 
+              readOnly
+              type="text" 
+              placeholder="Find or start a conversation"
+            />
           </form>
         </section>
 
