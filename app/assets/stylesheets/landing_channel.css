@@ -18,6 +18,7 @@
 .channels-top-info {
   padding: 10px 15px 0 15px;
   width: auto;
+  user-select: none;
 }
 
 .channels-top-info {
@@ -28,7 +29,6 @@
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
-  cursor: pointer;
 }
 
 /* Search Bar */
@@ -79,6 +79,10 @@
   grid-template-columns: 50px 150px;
   justify-content: flex-start;
   align-items: center;
+}
+
+.selected {
+  color: white;
 }
 
 /* MESSAGES */
@@ -134,9 +138,10 @@
 .activity-display-container {
   display: flex;
   background-color: var(--app-primary-background-color);
-  height: calc(100vh - 70px);
+  /* height: calc(100vh - 70px); */
   width: auto;
-  padding-top: 20px;
+  box-sizing: border-box;
+  padding: 20px 0;
 }
 
 .activities-display-list {

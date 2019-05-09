@@ -60,7 +60,8 @@ class serverIndex extends React.Component {
         <aside className="discord-nav-bar" scrolling="no">
           {/* <Link to="/servers"> */}
             <div className="home-icon" onClick={this.handleActivityNav}>
-              <i className="fas fa-home fa-2x"></i>
+              {/* <i className="fas fa-home fa-2x"></i> */}
+              <img src="https://cdn.discordapp.com/attachments/560127966688837672/576138524873457674/discourse-logo-transparent.png" alt="Home"/>
             </div>
           {/* </Link> */}
           <div className="home-icon-divider"></div>

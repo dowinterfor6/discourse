@@ -87,8 +87,9 @@
   align-items: center;
 }
 
-.home-icon i {
+.home-icon img {
   margin: auto;
+  height: 100%;
 }
 
 .home-icon-divider {
@@ -149,6 +150,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  user-select: none;
 }
 
 .left-description i {

@@ -37,7 +37,7 @@ class LandingChannel extends React.Component {
             <h3>Activity</h3>
           </div>
           <div className="right-description">
-            <i className="fas fa-at fa-2x"></i>
+            {/* <i className="fas fa-at fa-2x"></i> */}
             <i className="far fa-question-circle fa-2x"></i>
           </div>
         </section>
@@ -45,18 +45,19 @@ class LandingChannel extends React.Component {
         <section className="channels">
           <section className="channels-top-info" scrolling="no">
             <ul className="header-list">
-              <li><i className="fas fa-gamepad fa-2x"></i></li>
-              <li>&nbsp; Activity</li>
+              <li className="selected"><i className="fas fa-gamepad fa-2x"></i></li>
+              <li className="selected">Activity</li>
               <li><i className="fas fa-shopping-bag fa-2x"></i></li>
-              <li>&nbsp; Library</li>
+              <li>Library</li>
               <li><i className="fab fa-gripfire fa-2x"></i></li>
-              <li>&nbsp; Nitro</li>
+              <li>Nitro</li>
               <li><i className="fas fa-user-friends fa-2x"></i></li>
-              <li>&nbsp; Friends</li>
+              <li>Friends</li>
             </ul>
             <section className="message-container">
-              <p>Direct Messages</p>
+              {/* <p>Direct Messages</p> */}
               <ul className="direct-message-list">
+                {/* <li>Some user</li>
                 <li>Some user</li>
                 <li>Some user</li>
                 <li>Some user</li>
@@ -84,8 +85,7 @@ class LandingChannel extends React.Component {
                 <li>Some user</li>
                 <li>Some user</li>
                 <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
+                <li>Some user</li> */}
               </ul>
             </section>
           </section>
