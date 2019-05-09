@@ -1,0 +1,1 @@
+json.extract! message, :body, :sender, :custom_timestamp

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserInfoBar from './user_info_bar';
 import ChatRoom from '../cable_chat/chat_room';
+import ChatRoomContainer from '../cable_chat/chat_room_container';
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -165,7 +166,7 @@ class ChannelIndex extends React.Component {
         </section>
         
         <section className="channel-content">
-          <ChatRoom />
+          <ChatRoomContainer />
         </section>
       </div>
     )

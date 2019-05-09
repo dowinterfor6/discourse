@@ -48,7 +48,7 @@ class MessageForm extends React.Component {
       App.cable.subscriptions.subscriptions[0].speak({
         message: this.state.body,
         sender: this.props.currentUser.username,
-        timestamp: date
+        custom_timestamp: date
       });
       this.setState({ body: "" });
       this.resetTextarea();

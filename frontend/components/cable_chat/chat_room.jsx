@@ -18,30 +18,52 @@ class ChatRoom extends React.Component {
       },
       {
         received: (data) => {
-          this.setState({
-            messages: this.state.messages.concat(
-              {
-                body: data.message,
-                sender: data.sender,
-                timestamp: data.timestamp
-              }
-            )
-          });
+          switch (data.type) {
+            case 'message':
+              this.setState({
+                messages: this.state.messages.concat(
+                  {
+                    body: data.message.body,
+                    sender: data.message.sender,
+                    custom_timestamp: data.message.custom_timestamp
+                  }
+                )
+              });
+              break;
+            case 'messages':
+              this.setState({
+                messages: Object.values(data.messages)
+              });
+              break;
+          }
         },
         speak: function(data) {
           return this.perform("speak", data);
+        },
+        load: function() {
+          return this.perform("load");
         }
       }
     )
-  }
 
+    this.props.fetchChatHistory().then(
+      (data) => {
+        this.setState({messages: Object.values(data.messages)});
+      }
+    )
+  }
+  
   componentDidUpdate() {
     if (this.bottom.current) {
       this.bottom.current.scrollIntoView();
     }
   }
-
+  
   render() {
+    if (this.state.messages.length === 0) {
+      return null;
+    }
+    console.log(this.state);
     let messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>
@@ -50,7 +72,7 @@ class ChatRoom extends React.Component {
               {message.sender}
             </div>
             <div className="message-sender-time">
-              {message.timestamp}
+              {message.custom_timestamp}
             </div>
           </div>
           <div className="message-content">

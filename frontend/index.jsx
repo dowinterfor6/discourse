@@ -6,6 +6,8 @@ import configureStore from './store/store';
 import * as sessionApiUtil from './util/session_api_util';
 import * as serverApiUtil from './util/server_api_util';
 import { fetchAllServers, fetchServer, createServer, deleteServer, leaveServer, joinServer } from './actions/server_actions';
+import { getChatHistory } from './util/chat_util';
+import { fetchChatHistory } from './actions/chat_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore();
@@ -42,11 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchAllServers = fetchAllServers;
   window.fetchServer = fetchServer;
   window.createServer = createServer;
-  window.deleteServer = deleteServer;
+  window.deleteServer  = deleteServer;
 
   // window.leaveServer = serverApiUtil.leaveServer;
   window.leaveServer = leaveServer;
 
   // window.joinServer = serverApiUtil.joinServer;
   window.joinServer = joinServer;
+
+  window.getChatHistory = getChatHistory;
+  window.fetchChatHistory = fetchChatHistory;
 });
