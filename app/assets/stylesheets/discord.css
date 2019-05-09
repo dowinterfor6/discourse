@@ -214,6 +214,10 @@
   font-size: 1.1em;
 }
 
+.channels ul {
+  margin: 10px;
+}
+
 .channels ul li {
   margin: 10px 0;
 }
