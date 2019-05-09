@@ -44,7 +44,7 @@ li.login-link-container {
   border-left: 1px solid var(--border-primary);
 }  
 
-.nav-bar li:hover {
+.right-nav li:hover {
   color: var(--text-hover-color);
 }  
 
@@ -63,8 +63,28 @@ li.login-link-container {
 
 .left-nav img {
   display: flex;
-  max-width: 125px;
-  height: auto;
+  width: auto;
+  height: 42.5px;
+}
+
+.left-nav-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 215px;
+}
+
+.discourse-logo-text {
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bold;
+  color: var(--font-primary);
+  font-family: 'Cuprum', sans-serif;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 2px;
 }
 /* MAIN CONTENT */
 
@@ -82,6 +102,7 @@ li.login-link-container {
 .main-content h1,
 p {
   user-select: none;
+  line-height: 1em;
 }
 
 #content-buttons {

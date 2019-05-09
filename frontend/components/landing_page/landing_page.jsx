@@ -5,7 +5,12 @@ const landingPage = () => (
   <>
     <nav className="nav-bar">
       <ul className="left-nav">
-        <li><img src={window.discordLogoURL} alt="Discourse Logo"></img></li>
+        <li className="left-nav-contents">
+          <img src="https://cdn.discordapp.com/attachments/560127966688837672/576110941339516938/discourse-logo-alt.png" alt="Discourse Logo"></img>
+          <div className="discourse-logo-text">
+            Discourse
+          </div>
+        </li>
         {/* <li>Download</li>
         <li>Nitro</li>
         <li>Jobs</li>
@@ -57,7 +62,7 @@ const landingPage = () => (
       <section className="footer">
         <ul>
           <ul id="foot-header" className="header">
-            <img src={window.discordSmallLogoURL} alt="Discourse Small Logo"></img>
+            <img src="https://cdn.discordapp.com/attachments/560127966688837672/576110941339516938/discourse-logo-alt.png" alt="Discourse Small Logo"></img>
           </ul>
           <ul id="foot-header">
             <li id="header">Goal</li>
