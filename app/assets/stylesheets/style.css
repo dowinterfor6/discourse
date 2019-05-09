@@ -61,17 +61,17 @@ li.login-link-container {
   border-color: var(--text-hover-color);
 }
 
-.discourse-logo-wrapper img {
-  display: flex;
-  width: auto;
-  height: 42.5px;
-}
-
 .discourse-logo-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 215px;
+}
+
+.discourse-logo-wrapper img {
+  display: flex;
+  width: auto;
+  height: 42.5px;
 }
 
 .discourse-logo-text {
@@ -85,6 +85,7 @@ li.login-link-container {
   align-items: center;
   position: relative;
   top: 2px;
+  user-select: none;
 }
 /* MAIN CONTENT */
 
