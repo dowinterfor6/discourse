@@ -96,12 +96,13 @@ p {
 a {
 	font-size: 15px;
 	text-decoration: none;
+	color: inherit;
 }
-  
-li {
+
+i {
 	cursor: pointer;
 }  
-  
+
 button {
 	width: 250px;
 	height: 45px;

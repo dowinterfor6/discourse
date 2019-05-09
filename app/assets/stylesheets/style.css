@@ -6,6 +6,7 @@
   --font-tertiary: #4a4a4e;
   --border-primary: #48484c;
   --text-hover-color: #FFF;
+  --button-hover: #667bc4;
 }
 
 /* NAV BAR CSS */
@@ -34,10 +35,11 @@
 }  
 
 .right-nav li {
-  padding: 0 9px;
+  padding: 0 10px;
 }  
 
-.right-nav li:last-of-type {
+li.login-link-container {
+  margin-left: 10px;
   padding-left: 20px;
   border-left: 1px solid var(--border-primary);
 }  
@@ -77,6 +79,11 @@
   text-align: center;
 }  
 
+.main-content h1,
+p {
+  user-select: none;
+}
+
 #content-buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
@@ -86,6 +93,10 @@
   justify-items: center;
   animation: fadein 2s;
 }  
+
+#content-buttons a button {
+  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
 
 /* via SO, http://jsfiddle.net/SO_AMK/VV2ek/ */
 @keyframes fadein {
@@ -97,12 +108,12 @@
   }
 }
 
-#content-buttons button:first-of-type {
+#content-buttons a:first-of-type button {
   background-color: white;
   color: var(--font-tertiary);
 }
 
-#content-buttons button:hover {
+#content-buttons a button:hover {
   top: 1px;
   transition: top 2s;
 }
@@ -129,7 +140,7 @@
 .bottom-content ul {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 2em;
 }
 
@@ -147,6 +158,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  user-select: none;
+}
+
+#header {
+  font-weight: bold;
 }
 
 .header {
@@ -172,10 +188,19 @@
 }
 
 .below-footer button {
-  width: 100px;
+  width: 105px;
+}
+
+.below-footer button:hover {
+  background-color: var(--button-hover);
 }
 
 #left-footer p {
   text-transform: uppercase;
   margin: 1em 0;
+  user-select: none;
+}
+
+#left-footer h2 {
+  user-select: none;
 }
