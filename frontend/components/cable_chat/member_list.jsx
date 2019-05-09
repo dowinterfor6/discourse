@@ -8,15 +8,26 @@ class MemberList extends React.Component {
     this.state = {
       users: {}
     }
+    this.refetchServerMembers = this.refetchServerMembers.bind(this);
   }
 
-  componentDidMount() {
+  refetchServerMembers() {
     this.props.fetchServer(this.props.match.params.id)
       .then(
         (data) => {
-          this.setState({users: data.server.users});
+          this.setState({ users: data.server.users });
         }
       )
+  }
+
+  componentDidMount() {
+    this.refetchServerMembers();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.refetchServerMembers();
+    }
   }
 
   render() {
