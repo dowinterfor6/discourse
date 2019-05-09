@@ -63,7 +63,6 @@ class ChatRoom extends React.Component {
     if (this.state.messages.length === 0) {
       return null;
     }
-    console.log(this.state);
     let messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>
