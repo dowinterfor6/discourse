@@ -157,9 +157,10 @@
   width: 100%;
   font-size: 10px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
   align-items: center;
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 .member-list-description i:hover {
@@ -169,4 +170,44 @@
 
 .member-list {
   background-color: var(--app-secondary-background-color);
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.member-list p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.member-listing-show {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+  height: 50px;
+}
+
+.avatar-background {
+  height: 45px;
+  width: 45px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+.avatar {
+  background: url('https://cdn.discordapp.com/attachments/560127966688837672/576138524873457674/discourse-logo-transparent.png');
+  background-position: center;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.online-status {
+  height: 10px;
+  width: 10px;
+  border-radius: 100px;
+  border: 1px solid black;
+  background-color: #43b581;
 }

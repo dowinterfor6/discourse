@@ -37,7 +37,7 @@ class MemberList extends React.Component {
         <p>Users - {users.length}</p>
         <ul className="member-listing-index">
           {users.map((user, idx) => (
-            <MemberListItem key={idx} username={user.username}/>
+            <MemberListItem key={idx} username={user.username} id={user.id}/>
           ))}
         </ul>
       </>

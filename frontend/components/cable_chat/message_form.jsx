@@ -74,7 +74,7 @@ class MessageForm extends React.Component {
               value={this.state.body}
               onKeyPress={this.handleEnter}
               onChange={this.update('body')}
-              placeholder="Message {channel}"
+              placeholder="Message general"
               >
             </textarea>
             <button>Send</button>

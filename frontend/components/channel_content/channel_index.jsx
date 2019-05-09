@@ -138,7 +138,7 @@ class ChannelIndex extends React.Component {
         <section className="description">
           <div className="left-description">
             <i className="fas fa-hashtag fa-2x"></i>
-            <h2>IS-A-MUCH-GOOD-SUCH-WOW-DISCORD</h2>
+            <h2>general</h2>
           </div>
           <div className="right-description">
             {/* <i className="fas fa-bell fa-2x"></i>
@@ -147,27 +147,19 @@ class ChannelIndex extends React.Component {
             {/* <input type="text" placeholder="search"></input>
             <i className="fas fa-search fa-2x"></i> */}
             {/* <i className="fas fa-at fa-2x"></i> */}
-            <i className="far fa-question-circle fa-2x"></i>
           </div>
         </section>
 
         <section className="member-list-description">
-          <input type="text" placeholder="search"></input>
-          <i className="fas fa-search fa-2x"></i>
+          <i className="far fa-question-circle fa-2x"></i>
+          {/* <input type="text" placeholder="search"></input>
+          <i className="fas fa-search fa-2x"></i> */}
         </section>
 
         <section className="channels">
           {/* TODO: refactor and add channel_list_item component */}
           <ul>
-            <li><i className="fas fa-hashtag"></i> assembly-general</li>
-            <li><i className="fas fa-hashtag"></i> generally-not-eso</li>
-            <li><i className="fas fa-hashtag"></i> general-memes</li>
-            <li><i className="fas fa-hashtag"></i> generally-parses</li>
-            <li><i className="fas fa-hashtag"></i> backup-general</li>
-            <li><i className="fas fa-hashtag"></i> generally-dead</li>
-            <li><i className="fas fa-hashtag"></i> bdo-general</li>
-            <li><i className="fas fa-hashtag"></i> dump-general</li>
-            <li><i className="fas fa-hashtag"></i> rhytm-general</li>
+            <li><i className="fas fa-hashtag"></i> general</li>
           </ul>
           <UserInfoBar currentUser={this.props.currentUser} logout={this.props.logout} />
         </section>
