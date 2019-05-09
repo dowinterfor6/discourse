@@ -5,7 +5,7 @@ const landingPage = () => (
   <>
     <nav className="nav-bar">
       <ul className="left-nav">
-        <li className="left-nav-contents">
+        <li className="discourse-logo-wrapper">
           <img src="https://cdn.discordapp.com/attachments/560127966688837672/576110941339516938/discourse-logo-alt.png" alt="Discourse Logo"></img>
           <div className="discourse-logo-text">
             Discourse

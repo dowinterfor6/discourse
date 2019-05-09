@@ -174,7 +174,14 @@ class SessionForm extends React.Component {
     return (
       <div className="login-body">
         <div className="login-main">
-          <Link to='/'><img src={window.discordLogoURL} alt="Discourse Logo"></img></Link>
+          <Link to='/' className="login-logo">
+            <div className="discourse-logo-wrapper">
+              <img src="https://cdn.discordapp.com/attachments/560127966688837672/576110941339516938/discourse-logo-alt.png" alt="Discourse Logo"></img>
+              <div className="discourse-logo-text">
+                Discourse
+              </div>
+            </div>
+          </Link>
           <form className="login-form bounceInDown" onSubmit={this.handleSubmit}>
             {formHeader}
             {emailForm}

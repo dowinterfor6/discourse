@@ -61,13 +61,13 @@ li.login-link-container {
   border-color: var(--text-hover-color);
 }
 
-.left-nav img {
+.discourse-logo-wrapper img {
   display: flex;
   width: auto;
   height: 42.5px;
 }
 
-.left-nav-contents {
+.discourse-logo-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
