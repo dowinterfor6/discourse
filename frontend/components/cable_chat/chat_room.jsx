@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageFormContainer from './message_form_container';
+import {withRouter} from 'react-router-dom';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -93,4 +94,4 @@ class ChatRoom extends React.Component {
   }
 }
 
-export default ChatRoom
+export default withRouter(ChatRoom);

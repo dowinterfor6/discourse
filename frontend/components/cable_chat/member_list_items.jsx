@@ -7,15 +7,15 @@ class MemberListItem extends React.Component {
 
   avatarColorRandomizer(id) {
     let colors = {
-      1: '#96ec5f',
-      2: '#4d963c',
-      3: '#1c6028',
-      4: '#a51919',
-      5: '#ffb321',
-      6: '#4f3985',
-      7: '#00c5ff'
+      0: '#96ec5f',
+      1: '#4d963c',
+      2: '#1c6028',
+      3: '#a51919',
+      4: '#ffb321',
+      5: '#4f3985',
+      6: '#00c5ff'
     }
-    return colors[id % Object.keys(colors).length];
+    return colors[id % (Object.keys(colors).length - 1)];
   }
 
   render() {
