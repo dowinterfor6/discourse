@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -48,7 +49,8 @@ class MessageForm extends React.Component {
       App.cable.subscriptions.subscriptions[0].speak({
         message: this.state.body,
         sender: this.props.currentUser.username,
-        custom_timestamp: date
+        custom_timestamp: date,
+        channel_id: this.props.match.params.id
       });
       this.setState({ body: "" });
       this.resetTextarea();
@@ -85,4 +87,4 @@ class MessageForm extends React.Component {
   }
 }
 
-export default MessageForm;
+export default withRouter(MessageForm);

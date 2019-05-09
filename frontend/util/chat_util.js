@@ -1,6 +1,6 @@
-export const getChatHistory = () => (
+export const getChatHistory = (server_id) => (
   $.ajax({
     method: 'GET',
-    url: '/api/messages'
+    url: `/api/servers/${server_id}/messages`
   })
 )

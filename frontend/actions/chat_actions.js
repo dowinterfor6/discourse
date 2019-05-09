@@ -6,8 +6,8 @@ const receiveChatHistory = (messages) => ({
   messages
 });
 
-export const fetchChatHistory = () => (dispatch) => (
-  chatUtil.getChatHistory()
+export const fetchChatHistory = (server_id) => (dispatch) => (
+  chatUtil.getChatHistory(server_id)
     .then(
       (messages) => dispatch(receiveChatHistory(messages))
     )

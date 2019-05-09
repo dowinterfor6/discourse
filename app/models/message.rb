@@ -8,6 +8,7 @@
 #  updated_at       :datetime         not null
 #  sender           :string           not null
 #  custom_timestamp :string           not null
+#  channel_id       :integer          not null
 #
 
 class Message < ApplicationRecord

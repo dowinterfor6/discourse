@@ -66,3 +66,6 @@ UserServer.create!(user_id: user_5.id,server_id: server_6.id)
 UserServer.create!(user_id: user_5.id,server_id: server_7.id)
 
 Message.destroy_all
+
+Message.create!(body: 'This is a test for Demo user\'s crappy server', sender: 'Admin', custom_timestamp: 'Now lol', channel_id: server_1.id)
+Message.create!(body: 'This is a test for THE bakers\'s hangout', sender: 'Admin', custom_timestamp: 'Now lmao', channel_id: server_3.id)

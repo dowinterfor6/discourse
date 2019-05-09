@@ -4,7 +4,7 @@ import ChatRoom from "./chat_room";
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchChatHistory: () => dispatch(fetchChatHistory())
+    fetchChatHistory: (server_id) => dispatch(fetchChatHistory(server_id))
   }
 };
 
