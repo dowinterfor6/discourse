@@ -1,4 +1,6 @@
 :root {
+  --app-primary-background-color: #36393f;
+  --app-secondary-background-color: #2F3136;
   --app-tertiary-background-color: #202225;
 }
 
@@ -144,4 +146,27 @@
   overflow-x: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+/* MEMBER LIST */
+
+.member-list-description {
+  background-color: var(--app-primary-background-color);
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.member-list-description i:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.member-list {
+  background-color: var(--app-secondary-background-color);
 }

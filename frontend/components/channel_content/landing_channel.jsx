@@ -23,7 +23,7 @@ class LandingChannel extends React.Component {
     let currentUser = this.props.currentUser;
 
     return (
-      <div className="discord-main-content-container">
+      <div className="discord-main-content-container activity-channel-content-container">
 
         <section className="title">
           <form className="search-container">

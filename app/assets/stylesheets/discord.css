@@ -117,8 +117,12 @@
   /* grid-template-columns: 240px 1fr;
   grid-template-rows: 50px 1fr; */
 
-  grid-template-columns: 240px calc(100vw - 310px);
+  grid-template-columns: 240px calc(100vw - 550px) 240px;
   grid-template-rows: 50px calc(100vh - 50px);
+}
+
+.discord-main-content-container.activity-channel-content-container {
+  grid-template-columns: 240px calc(100vw - 310px);
 }
 
 .title {

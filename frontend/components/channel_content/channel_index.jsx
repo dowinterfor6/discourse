@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import UserInfoBar from './user_info_bar';
 import ChatRoom from '../cable_chat/chat_room';
 import ChatRoomContainer from '../cable_chat/chat_room_container';
+import MemberList from '../cable_chat/member_list';
+import MemberListContainer from '../cable_chat/member_list_container';
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -142,11 +144,16 @@ class ChannelIndex extends React.Component {
             {/* <i className="fas fa-bell fa-2x"></i>
             <i className="fas fa-thumbtack fa-2x"></i>
             <i className="fas fa-users fa-2x"></i> */}
-            <input type="text" placeholder="search"></input>
-            <i className="fas fa-search fa-2x"></i>
+            {/* <input type="text" placeholder="search"></input>
+            <i className="fas fa-search fa-2x"></i> */}
             {/* <i className="fas fa-at fa-2x"></i> */}
             <i className="far fa-question-circle fa-2x"></i>
           </div>
+        </section>
+
+        <section className="member-list-description">
+          <input type="text" placeholder="search"></input>
+          <i className="fas fa-search fa-2x"></i>
         </section>
 
         <section className="channels">
@@ -167,6 +174,10 @@ class ChannelIndex extends React.Component {
         
         <section className="channel-content">
           <ChatRoomContainer />
+        </section>
+
+        <section className="member-list">
+          <MemberListContainer />
         </section>
       </div>
     )
