@@ -56,7 +56,7 @@ class LandingChannel extends React.Component {
             </ul>
             <section className="message-container">
               <p>Direct Messages</p>
-              <ul className="message-list">
+              <ul className="direct-message-list">
                 <li>Some user</li>
                 <li>Some user</li>
                 <li>Some user</li>
