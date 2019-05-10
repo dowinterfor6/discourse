@@ -89,6 +89,7 @@ class ChannelIndex extends React.Component {
   }
 
   render() {
+    // TODO: APP NEEDS REFRESH AFTER LOGIN TO UPDATE CURRENT USER
     let serverName;
     let currentUserId;
     let currentServerOwnerId;
