@@ -99,7 +99,7 @@ While this handles the expanding of the text field, a separate method is require
 ## User Authentication errors
 By combining both HTML validations as well as custom backend validations, multiple errors can be rendered to ensure all conditions are properly met before attempting to save a user's information to the database. Errors can appear next to the appropriate field by parsing through the error and determining which one it is associated with.
 
-![User-Authentication-error-screenshot](https://github.com/dowinterfor6/discourse/blob/master/docs/images/user-auth-errors.png)
+![User-Authentication-error-screenshot](https://github.com/dowinterfor6/discourse/blob/master/docs/images/user-auth-errors-more.png)
 
 An alternative, more efficient method would be saving the errors under respective slices of state and render accordingly, however, due to time constraints and the (relatively) small variety of errors that could be thrown, the approach of parsing through the actual error itself is adopted to save time.
 
