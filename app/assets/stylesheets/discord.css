@@ -155,6 +155,7 @@
 }
 
 .left-description i {
+  color: #72767d;
   margin-right: 10px;
 }
 
@@ -215,9 +216,23 @@
 }
 
 .channels ul {
-  margin: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
 }
 
-.channels ul li {
-  margin: 10px 0;
+.channel-list li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #40444b;
+  color: var(--font-primary);
+}
+
+.channel-list li i {
+  color: #72767d;
+  margin-right: 7.5px;
 }

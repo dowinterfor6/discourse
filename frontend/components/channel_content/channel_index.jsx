@@ -158,8 +158,8 @@ class ChannelIndex extends React.Component {
 
         <section className="channels">
           {/* TODO: refactor and add channel_list_item component */}
-          <ul>
-            <li><i className="fas fa-hashtag"></i> general</li>
+          <ul className="channel-list">
+            <li><i className="fas fa-hashtag fa-lg"></i> general</li>
           </ul>
           <UserInfoBar currentUser={this.props.currentUser} logout={this.props.logout} />
         </section>
