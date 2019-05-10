@@ -12,4 +12,5 @@
 #
 
 class Message < ApplicationRecord
+  validates :body, :sender, :channel_id, presence: true
 end
