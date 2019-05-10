@@ -13,7 +13,7 @@ Discourse is a platform for text chat aimed at gamers, inspired by Discord. Impl
 
 ## Channel display page
 A basic channel layout styled based off the official Discord styling and color palette is show upon navigating to a server. The chat history will show a default message encouraging users to send a message if there is no message history, and a list of users who are in the server is shown on the right. The document title changes according to the current server.
-![Channel-display-page](https://github.com/dowinterfor6/discourse/blob/master/docs/images/server-screenshot.png)
+![Channel-display-page](https://github.com/dowinterfor6/discourse/blob/master/docs/images/server-screenshot-blurred.png)
 The message display is managed by a conditional that checks whether or not any message history exists based on information fetched when the component is mounted, and renders either the default message or the message history.
 ```
 if (this.state.messages.length === 0) {
