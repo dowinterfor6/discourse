@@ -31,7 +31,7 @@ if (this.state.messages.length === 0) {
 ```
 Each message in the message history is then displayed accordingly, based on the received information from the Action Cable subscription that was created upon component mounting. Each subsequent message will then be posted to the database and broadcasted to the relevant channels with information about the body, sender, and a custom timestamp that utilizes the Moment.js library to render a nicely formatted timestamp, and allow for relative time display if desired (e.g. 2 hours ago, now, etc.).
 ```
-//In main channel component
+// In main channel component
 received: (data) => {
   switch (data.type) {
     case 'message':
@@ -53,7 +53,7 @@ received: (data) => {
   }
 }
 
-//In message form component, on submit
+// In message form component, on submit
 let moment = require('moment');
 let date = moment().format('MMMM Do YYYY, h:mm:ss a');
 App.cable.subscriptions.subscriptions[0].speak({
@@ -65,7 +65,36 @@ App.cable.subscriptions.subscriptions[0].speak({
 ```
 
 ## Automatically expanding input field
+A deceptively difficult feature to implement was the expanding text field that had a maximum height before adding a scroll bar. This feature is used when typing or pasting long messages to accommodate for the length of the message to a certain degree, then adding a scroll bar when it exceeds the maximum height so the user can still continue typing. Submission of this input was also slightly complicated as it was a quality of life feature that pressing "Enter" should submit the field, while "Shift + Enter" should make a new line. 
 
+![Channel-input-field](https://github.com/dowinterfor6/discourse/blob/master/docs/images/expanding-text-field-screenshot.png)
+
+In order to implement this feature properly, the input had to be converted to a textarea, and the actual logic implemented in both CSS and JS constraints. A simple fix for the "Enter" and "Shift + Enter" keystrokes is implemented with the following handler: 
+
+```
+handleEnter(evt) {
+  if (evt.which === 13 && !evt.shiftKey) {
+    evt.preventDefault();
+    this.callSpeak();
+    // This handles the broadcasting of a message to the channel
+  }
+}
+```
+
+To handle the expanding text field, a method had to be written that changes the text area input size based on the content, with a defined minimum and maximum. The minimum size is defined by the (lack of) scroll and CSS, while the maximum is determined by just the CSS constraint. Upon field update, the field is reset to account for potential copy/pasting that can affect the size, and then resized to the appropriate size, with the container and decorative divider increased as well.
+
+```
+resizeTextarea(e) {
+  let currentTarget = e.currentTarget;
+  currentTarget.style.height = "1px";
+  currentTarget.style.height = (currentTarget.scrollHeight) + "px";
+  let container = document.getElementsByClassName('message-form-container')[0];
+  container.style.height = "1px";
+  container.style.height = (65 + currentTarget.scrollHeight) + "px";
+}
+```
+
+While this handles the expanding of the text field, a separate method is required to reset the text area and container to default heights upon submission.
 
 ## User Authentication errors
 By combining both HTML validations as well as custom backend validations, multiple errors can be rendered to ensure all conditions are properly met before attempting to save a user's information to the database. Errors can appear next to the appropriate field by parsing through the error and determining which one it is associated with.
