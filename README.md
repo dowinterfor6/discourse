@@ -15,7 +15,7 @@ Discourse is a platform for text chat aimed at gamers, inspired by Discord. Impl
 A basic channel layout styled based off the official Discord styling and color palette is show upon navigating to a server. The chat history will show a default message encouraging users to send a message if there is no message history, and a list of users who are in the server is shown on the right. The document title changes according to the current server.
 ![Channel-display-page](https://github.com/dowinterfor6/discourse/blob/master/docs/images/server-screenshot-blurred.png)
 The message display is managed by a conditional that checks whether or not any message history exists based on information fetched when the component is mounted, and renders either the default message or the message history.
-```
+```javascript
 if (this.state.messages.length === 0) {
   messageList =
   <li>
@@ -30,7 +30,7 @@ if (this.state.messages.length === 0) {
 }
 ```
 Each message in the message history is then displayed accordingly, based on the received information from the Action Cable subscription that was created upon component mounting. Each subsequent message will then be posted to the database and broadcasted to the relevant channels with information about the body, sender, and a custom timestamp that utilizes the Moment.js library to render a nicely formatted timestamp, and allow for relative time display if desired (e.g. 2 hours ago, now, etc.).
-```
+```javascript
 // In main channel component
 received: (data) => {
   switch (data.type) {
@@ -71,7 +71,7 @@ A deceptively difficult feature to implement was the expanding text field that h
 
 In order to implement this feature properly, the input had to be converted to a textarea, and the actual logic implemented in both CSS and JS constraints. A simple fix for the "Enter" and "Shift + Enter" keystrokes is implemented with the following handler: 
 
-```
+```javascript
 handleEnter(evt) {
   if (evt.which === 13 && !evt.shiftKey) {
     evt.preventDefault();
@@ -83,7 +83,7 @@ handleEnter(evt) {
 
 To handle the expanding text field, a method had to be written that changes the text area input size based on the content, with a defined minimum and maximum. The minimum size is defined by the (lack of) scroll and CSS, while the maximum is determined by just the CSS constraint. Upon field update, the field is reset to account for potential copy/pasting that can affect the size, and then resized to the appropriate size, with the container and decorative divider increased as well.
 
-```
+```javascript
 resizeTextarea(e) {
   let currentTarget = e.currentTarget;
   currentTarget.style.height = "1px";
