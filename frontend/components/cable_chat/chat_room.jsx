@@ -5,7 +5,6 @@ import {withRouter} from 'react-router-dom';
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
-    // TODO: add action that updates global state with local state
     this.state = {
       messages: []
     };
@@ -14,9 +13,7 @@ class ChatRoom extends React.Component {
 
   componentDidMount() {
     App.cable.subscriptions.create(
-      {
-        channel: "ChatChannel"
-      },
+      "ChatChannel",
       {
         received: (data) => {
           switch (data.type) {
@@ -43,7 +40,7 @@ class ChatRoom extends React.Component {
         },
         load: function() {
           return this.perform("load");
-        }
+        },
       }
     )
 
@@ -104,6 +101,7 @@ class ChatRoom extends React.Component {
         <ul className="message-list" scrolling='no'>
           {messageList}
         </ul>
+        <div className="test" data-appearing-on></div>
         <MessageFormContainer />
       </div>
     )

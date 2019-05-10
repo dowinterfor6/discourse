@@ -30,6 +30,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+  cursor: pointer;
 }
 
 .hidden {

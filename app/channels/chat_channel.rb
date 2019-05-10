@@ -1,6 +1,7 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     stream_for 'chat_channel'
+
   end
 
   def speak(data)
@@ -9,7 +10,6 @@ class ChatChannel < ApplicationCable::Channel
       sender: data['sender'], 
       custom_timestamp: data['custom_timestamp'],
       channel_id: data['channel_id']
-      # channel_id: 8
     )
     if message.save
       socket = { message: message, type: 'message'}
@@ -19,7 +19,6 @@ class ChatChannel < ApplicationCable::Channel
 
   def load
     messages = Message.all
-    # messages = Message.where(channel_id: params[:server_id])
     message_arr = []
     messages.each do |message|
       message_el = { 
