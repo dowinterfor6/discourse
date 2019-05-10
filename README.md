@@ -102,3 +102,21 @@ By combining both HTML validations as well as custom backend validations, multip
 ![User-Authentication-error-screenshot](https://github.com/dowinterfor6/discourse/blob/master/docs/images/user-auth-errors.png)
 
 An alternative, more efficient method would be saving the errors under respective slices of state and render accordingly, however, due to time constraints and the (relatively) small variety of errors that could be thrown, the approach of parsing through the actual error itself is adopted to save time.
+
+# Project Design
+
+Discourse was designed to be a clone of Discord, imitating the simplistic but effective design, implementing features only if necessary and if it enhanced the user experience. With the short time period of two weeks, many features had to be left out in order to complete as many MVPs (minimum viable products) as possible, however due to the learning and implementing of action cable, many crucial features could not be implemented without additional time. 
+
+## Technologies
+
+As mentioned prior, Discourse utilizes a React and Redux frontend in order to handle (presentational) components and state through various actions and reducers. The backend is comprised of a postgreSQL database managed by Ruby on Rails, chosen for its' simplicity and RESTful routes. Although not the most popular technologies nowadays, these were chosen as the best fit for a project with a short time period. 
+
+## Potential features
+
+Without a time limit, the following features should also have been implemented:
+* Channel CRUD within servers
+* Separate chatrooms for each channel
+* Private mssaging
+* Ability to upload user/server avatars
+* Pasting invite link direclty to URL for invite
+* Checking user subscription to channel (green dot for 'online' users)
