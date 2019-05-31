@@ -13,7 +13,7 @@ Discourse is a platform for text chat aimed at gamers, inspired by Discord. Impl
 
 ## Channel display page
 A basic channel layout styled based off the official Discord styling and color palette is show upon navigating to a server. The chat history will show a default message encouraging users to send a message if there is no message history, and a list of users who are in the server is shown on the right. The document title changes according to the current server.
-![Channel-display-page](https://github.com/dowinterfor6/discourse/blob/master/docs/images/server-screenshot-blurred.png)
+![Channel-display-page](https://github.com/dowinterfor6/discourse/blob/master/docs/gifs/landing.gif)
 The message display is managed by a conditional that checks whether or not any message history exists based on information fetched when the component is mounted, and renders either the default message or the message history.
 ```javascript
 if (this.state.messages.length === 0) {
@@ -99,7 +99,7 @@ While this handles the expanding of the text field, a separate method is require
 ## User Authentication errors
 By combining both HTML validations as well as custom backend validations, multiple errors can be rendered to ensure all conditions are properly met before attempting to save a user's information to the database. Errors can appear next to the appropriate field by parsing through the error and determining which one it is associated with.
 
-![User-Authentication-error-screenshot](https://github.com/dowinterfor6/discourse/blob/master/docs/images/user-auth-errors-more.png)
+![User-Authentication-error-screenshot](https://github.com/dowinterfor6/discourse/blob/master/docs/gifs/reguster_errors.gif)
 
 An alternative, more efficient method would be saving the errors under respective slices of state and render accordingly, however, due to time constraints and the (relatively) small variety of errors that could be thrown, the approach of parsing through the actual error itself is adopted to save time.
 
