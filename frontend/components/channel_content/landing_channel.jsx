@@ -26,13 +26,13 @@ class LandingChannel extends React.Component {
       <div className="discord-main-content-container activity-channel-content-container">
 
         <section className="title">
-          <form className="search-container">
+          {/* <form className="search-container">
             <input 
               readOnly
               type="text" 
               placeholder="Find or start a conversation"
             />
-          </form>
+          </form> */}
         </section>
 
         <section className="description">
@@ -42,21 +42,21 @@ class LandingChannel extends React.Component {
           </div>
           <div className="right-description">
             {/* <i className="fas fa-at fa-2x"></i> */}
-            <i className="far fa-question-circle fa-2x"></i>
+            {/* <i className="far fa-question-circle fa-2x"></i> */}
           </div>
         </section>
 
         <section className="channels">
           <section className="channels-top-info" scrolling="no">
             <ul className="header-list">
-              <li className="selected"><i className="fas fa-gamepad fa-2x"></i></li>
+              {/* <li className="selected"><i className="fas fa-gamepad fa-2x"></i></li>
               <li className="selected">Activity</li>
               <li><i className="fas fa-shopping-bag fa-2x"></i></li>
               <li>Library</li>
               <li><i className="fab fa-gripfire fa-2x"></i></li>
               <li>Nitro</li>
               <li><i className="fas fa-user-friends fa-2x"></i></li>
-              <li>Friends</li>
+              <li>Friends</li> */}
             </ul>
             <section className="message-container">
               {/* <p>Direct Messages</p> */}

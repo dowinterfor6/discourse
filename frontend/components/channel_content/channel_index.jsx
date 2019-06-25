@@ -152,7 +152,7 @@ class ChannelIndex extends React.Component {
         </section>
 
         <section className="member-list-description">
-          <i className="far fa-question-circle fa-2x"></i>
+          {/* <i className="far fa-question-circle fa-2x"></i> */}
           {/* <input type="text" placeholder="search"></input>
           <i className="fas fa-search fa-2x"></i> */}
         </section>

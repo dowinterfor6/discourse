@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
       const form = document.querySelector('form');
       if (!form.className.includes('error-form')) {
         form.className += ' error-form';
-      }
+      };
       errorsParse = this.parseErrors();
       Object.keys(errorsParse).forEach((key) => {
         if (errorsParse[key].length > 0) {

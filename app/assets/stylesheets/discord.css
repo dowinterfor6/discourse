@@ -100,6 +100,8 @@
 }
 
 .add-server-icon {
+  text-align: center;
+  line-height: initial;
   margin: 0 auto 10px auto;
   font-size: 3em;
   color: var(--secondary-hover-color);

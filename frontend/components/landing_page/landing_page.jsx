@@ -48,8 +48,8 @@ const landingPage = () => (
         <a href="https://github.com/dowinterfor6/discourse">
           <button>Open Discourse on Github</button>
         </a>
-        <a href="https://discord.gg">
-          <button>Go to Discord homepage</button>
+        <a href="https://achan.dev">
+          <button>Portfolio</button>
         </a>
       </div>
     </section>
