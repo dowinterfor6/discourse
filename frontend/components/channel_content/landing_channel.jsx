@@ -40,7 +40,6 @@ class LandingChannel extends React.Component {
         )
       )
     }
-    console.log(this.state);
 
     return (
       <div className="discord-main-content-container activity-channel-content-container">
