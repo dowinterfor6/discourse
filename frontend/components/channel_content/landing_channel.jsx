@@ -2,8 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserInfoBar from './user_info_bar';
 import ActivityDisplay from './activity_display';
+import MemberListItem from '../cable_chat/member_list_items';
 
 class LandingChannel extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userList: {}
+    };
+  }
 
   updateDocumentTitle() {
     if (document.title !== 'Activity') {
@@ -17,10 +25,22 @@ class LandingChannel extends React.Component {
 
   componentDidMount() {
     this.updateDocumentTitle();
+    this.props.fetchUsers().then(
+      (data) => this.setState({ userList: data.users })
+    );
   }
 
   render() {
     let currentUser = this.props.currentUser;
+    let userDisplay;
+    if (this.state.userList) {
+      userDisplay = Object.values(this.state.userList).map(
+        (user, idx) => (
+          <MemberListItem key={idx} username={user.username} id={user.id} />
+        )
+      )
+    }
+    console.log(this.state);
 
     return (
       <div className="discord-main-content-container activity-channel-content-container">
@@ -33,6 +53,8 @@ class LandingChannel extends React.Component {
               placeholder="Find or start a conversation"
             />
           </form> */}
+          <i className="fas fa-user-friends fa-2x"></i>
+          <h3>Users</h3>
         </section>
 
         <section className="description">
@@ -55,41 +77,11 @@ class LandingChannel extends React.Component {
               <li>Library</li>
               <li><i className="fab fa-gripfire fa-2x"></i></li>
               <li>Nitro</li>
-              <li><i className="fas fa-user-friends fa-2x"></i></li>
-              <li>Friends</li> */}
+              */}
             </ul>
             <section className="message-container">
-              {/* <p>Direct Messages</p> */}
-              <ul className="direct-message-list">
-                {/* <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li>
-                <li>Some user</li> */}
+              <ul className="direct-message-list member-listing-index">
+                {userDisplay}
               </ul>
             </section>
           </section>

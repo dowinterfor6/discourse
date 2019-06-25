@@ -1,6 +1,7 @@
 import { logout } from "../../actions/session_actions";
 import { connect } from "react-redux";
 import LandingChannel from "./landing_channel";
+import { userIndex } from "../../util/user_util";
 
 const mapStateToProps = (state) => {
   return {
@@ -9,7 +10,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  fetchUsers: () => dispatch(userIndex)
 });
 
 export default connect(

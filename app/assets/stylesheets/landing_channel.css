@@ -16,12 +16,10 @@
 }
 
 .channels-top-info {
+  box-sizing: border-box;
   padding: 10px 15px 0 15px;
-  width: auto;
+  width: 100%;
   user-select: none;
-}
-
-.channels-top-info {
   overflow: hidden;
 }
 
@@ -75,12 +73,21 @@
 
 /* ICON BAR */
 
-.header-list {
+.title {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
   display: grid;
-  grid-template-columns: 50px 150px;
-  justify-content: flex-start;
+  grid-template-columns: 35px 1fr;
   align-items: center;
-  grid-gap: 20px;
+  user-select: none;
+}
+
+.title i {
+  width: 24.38px;
+  color: #72767d;
+  margin-right: 10px;
 }
 
 .selected {
@@ -88,10 +95,6 @@
 }
 
 /* MESSAGES */
-
-.message-container {
-  margin: 20px 0 0 0;
-}
 
 .message-container p {
   margin: 0;
