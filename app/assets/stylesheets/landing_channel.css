@@ -15,6 +15,10 @@
   justify-content: space-between;
 }
 
+.landing.channels-top-info {
+  padding-top: 0;
+}
+
 .channels-top-info {
   box-sizing: border-box;
   padding: 10px 15px 0 15px;
@@ -73,7 +77,15 @@
 
 /* ICON BAR */
 
-.title {
+.header-list {
+  display: grid;
+  grid-template-columns: 50px 150px;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 20px;
+}
+
+.landing-title {
   box-sizing: border-box;
   height: 100%;
   width: 100%;

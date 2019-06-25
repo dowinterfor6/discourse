@@ -52,8 +52,10 @@ class LandingChannel extends React.Component {
               placeholder="Find or start a conversation"
             />
           </form> */}
-          <i className="fas fa-user-friends fa-2x"></i>
-          <h3>Users</h3>
+          <div className="landing-title">
+            <i className="fas fa-user-friends fa-2x"></i>
+            <h3>Users</h3>
+          </div>
         </section>
 
         <section className="description">
@@ -68,8 +70,8 @@ class LandingChannel extends React.Component {
         </section>
 
         <section className="channels">
-          <section className="channels-top-info" scrolling="no">
-            <ul className="header-list">
+          <section className="landing channels-top-info" scrolling="no">
+            {/* <ul className="header-list"> */}
               {/* <li className="selected"><i className="fas fa-gamepad fa-2x"></i></li>
               <li className="selected">Activity</li>
               <li><i className="fas fa-shopping-bag fa-2x"></i></li>
@@ -77,7 +79,7 @@ class LandingChannel extends React.Component {
               <li><i className="fab fa-gripfire fa-2x"></i></li>
               <li>Nitro</li>
               */}
-            </ul>
+            {/* </ul> */}
             <section className="message-container">
               <ul className="direct-message-list member-listing-index">
                 {userDisplay}
